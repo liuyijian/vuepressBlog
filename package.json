@@ -1,0 +1,28 @@
+{
+  "name": "vuepressblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@maginapp/vuepress-plugin-katex": "^1.0.7",
+    "@vuepress/plugin-back-to-top": "^1.7.1",
+    "vue-router": "3.4.5",
+    "vuepress": "^1.7.1",
+    "vuepress-plugin-helper-live2d": "^1.0.2",
+    "vuepress-plugin-mathjax": "^1.2.8"
+  },
+  "dependencies": {
+    "markdown-it-katex": "^2.0.3",
+    "vue-router": "3.4.5"
+  }
+}
