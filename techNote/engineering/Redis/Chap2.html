@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chap2 原理 | lyj Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="我来到，我看见，我记录">
+    
+    <link rel="preload" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css" as="style"><link rel="preload" href="/vuepressBlog/assets/js/app.d9046163.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/2.449f8f2c.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/56.771dc482.js" as="script"><link rel="prefetch" href="/vuepressBlog/assets/js/10.5bc756b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/11.9a163bb2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/12.a8140d6d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/13.c05ca4b7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/14.73b57a43.js"><link rel="prefetch" href="/vuepressBlog/assets/js/15.b741e784.js"><link rel="prefetch" href="/vuepressBlog/assets/js/16.9f45c2d2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/17.26d9a8cc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/18.799cff0d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/19.ea6c0fd5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/20.04acbd3d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/21.603fe43e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/22.4ae699a6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/23.fa154d58.js"><link rel="prefetch" href="/vuepressBlog/assets/js/24.bd9f7b7c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/25.395a39b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/26.4df13269.js"><link rel="prefetch" href="/vuepressBlog/assets/js/27.106be358.js"><link rel="prefetch" href="/vuepressBlog/assets/js/28.e7be13aa.js"><link rel="prefetch" href="/vuepressBlog/assets/js/29.9c12446a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/3.eee8ddfd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/30.2a7c55a3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/31.79f9966c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/32.17e47231.js"><link rel="prefetch" href="/vuepressBlog/assets/js/33.9a171051.js"><link rel="prefetch" href="/vuepressBlog/assets/js/34.c5965f4e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/35.2a2f84f7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/36.ffcb560d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/37.2a643ffc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/38.390133cf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/39.99aa52c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/4.15a5030c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/40.d9e18abd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/41.b72c3c0e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/42.bfc4174b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/43.b147a9c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/44.e2870c7b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/45.b17d0a4b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/46.b865aed6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/47.deef082f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/48.ffe6ebd3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/49.8a66098e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/5.e509b048.js"><link rel="prefetch" href="/vuepressBlog/assets/js/50.e8b51f7e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/51.74edccd7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/52.06c14cd4.js"><link rel="prefetch" href="/vuepressBlog/assets/js/53.3482a1b1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/54.aeb745bd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/55.9b6a8dbf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/57.3ed3e1eb.js"><link rel="prefetch" href="/vuepressBlog/assets/js/58.e8e52be3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/59.756b7e8d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/6.293f4ee1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/60.e9172c5f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/7.25ada86b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/8.238e2de1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/9.b2fe1457.js">
+    <link rel="stylesheet" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressBlog/" class="home-link router-link-active"><!----> <span class="site-name">lyj Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link router-link-active">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link router-link-active">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Redis 学习笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html" class="sidebar-link">Chap1 基础和应用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#简介" class="sidebar-link">简介</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#_5种基础数据结构" class="sidebar-link">5种基础数据结构</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#分布式锁" class="sidebar-link">分布式锁</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#延时队列" class="sidebar-link">延时队列</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#位图" class="sidebar-link">位图</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#四两拨千斤-hyperloglog" class="sidebar-link">四两拨千斤——HyperLogLog</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#布隆过滤器" class="sidebar-link">布隆过滤器</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#断尾求生-简单限流" class="sidebar-link">断尾求生——简单限流</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#一毛不拔-漏斗限流" class="sidebar-link">一毛不拔——漏斗限流</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#近水楼台-geohash" class="sidebar-link">近水楼台——GeoHash</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#大海捞针-scan" class="sidebar-link">大海捞针——scan</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html" aria-current="page" class="active sidebar-link">Chap2 原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#线程io模型" class="sidebar-link">线程IO模型</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#通信协议" class="sidebar-link">通信协议</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#持久化" class="sidebar-link">持久化</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#管道" class="sidebar-link">管道</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#事务" class="sidebar-link">事务</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#小道消息-pubsub" class="sidebar-link">小道消息——PubSub</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#小对象压缩" class="sidebar-link">小对象压缩</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html" class="sidebar-link">Chap3 集群</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#主从同步" class="sidebar-link">主从同步</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#李代桃僵-sentinel-哨兵" class="sidebar-link">李代桃僵——Sentinel（哨兵）</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#分而治之-codis" class="sidebar-link">分而治之——Codis</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#众志成城-redis-cluster" class="sidebar-link">众志成城——Redis Cluster</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html" class="sidebar-link">Chap4 拓展</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#耳听八方-stream" class="sidebar-link">耳听八方——Stream</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#无所不知-info指令" class="sidebar-link">无所不知——info指令</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#拾遗补漏-再谈分布式锁" class="sidebar-link">拾遗补漏——再谈分布式锁</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#朝生暮死-过期策略" class="sidebar-link">朝生暮死——过期策略</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#优胜劣汰-lru" class="sidebar-link">优胜劣汰——LRU</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#平波缓进-懒惰删除" class="sidebar-link">平波缓进——懒惰删除</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#妙手仁心-优雅使用jedis" class="sidebar-link">妙手仁心——优雅使用Jedis</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#居安思危-保护redis" class="sidebar-link">居安思危——保护Redis</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#隔墙有耳-redis安全通信" class="sidebar-link">隔墙有耳——Redis安全通信</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap5.html" class="sidebar-link">Chap5 源码</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="chap2-原理"><a href="#chap2-原理" class="header-anchor">#</a> Chap2 原理</h1> <h2 id="线程io模型"><a href="#线程io模型" class="header-anchor">#</a> 线程IO模型</h2> <ul><li>Redis和Nodejs，Nginx一样，都是单线程程序</li> <li>Redis所有数据都在内存中，运算速度是内存级别的，故要避免一些O(n)的指令导致卡顿</li> <li>Redis会将每个客户端套接字都关联一个指令队列，客户端的指令通过队列来排队进行顺序处理，先到先服务</li> <li>Redis同样为每个客户端套接字关联一个响应队列，Redis服务器通过响应队列来将指令的返回结果回复给客户端，若队列为空，意味着链接暂时处于空闲状态，不需要获取写事件，可以将当前客户端描述符从write-fds里面移出来，等到队列有数据了，再将描述符放进去，避免select系统调用立即返回写事件，结果发现无数据可写，令CPU消耗飙升</li> <li>Redis的定时任务记录在一个称为最小堆的数据结构中，最快要执行的任务排在最上方，在每个循环周期里，Redis对最小堆里面已经到时间点的任务进行处理，处理完毕后，将最快要执行的任务还需要的时间记录下来，这个时间就是select系统调用的timeout参数，Redis知道未来一段时间没有定时任务要处理，就可以安心睡眠timeout的值的时间</li></ul> <h2 id="通信协议"><a href="#通信协议" class="header-anchor">#</a> 通信协议</h2> <ul><li>数据库瓶颈一般不在于网络流量，而在于数据库本身内部处理逻辑，故Redis使用了浪费流量的文本协议，单节点跑慢一个CPU核心下，可达到10w/s的超高QPS</li> <li>Redis序列化协议RESP将传输的结构数据分为5个最小单元类型，单元结束时统一加上回车换行符号<code>\r\n</code> <ul><li>1、单行字符串以+号开头
+<ul><li><code>+hello world\r\n</code></li></ul></li> <li>2、多行字符串以$号开头，后跟字符串长度
+<ul><li><code>$11\r\nhello world\r\n</code></li> <li>NULL用多行字符串表示 <code>$-1\r\n</code></li> <li>空串用多行字符串表示<code>$0\r\n\r\n</code></li></ul></li> <li>3、整数值以:号开头，后跟整数的字符串形式
+<ul><li><code>:1024\r\n</code></li></ul></li> <li>4、错误消息以-号开头
+<ul><li><code>-WRONGTYPE Operation against a key holding the wrong kind of value\r\n</code></li></ul></li> <li>5、数组以 * 号开头，后跟数组的长度
+<ul><li><code>*3\r\n:1\r\r:2\r\n:3\r\n</code></li></ul></li></ul></li></ul> <h2 id="持久化"><a href="#持久化" class="header-anchor">#</a> 持久化</h2> <ul><li>Redis持久化机制有两种
+<ul><li>快照（snapshot）：
+<ul><li>一次全量备份</li> <li>是内存数据的二进制序列化，在存储上非常紧凑</li> <li>使用操作系统的多进程COW（Copy On Write）机制实现</li></ul></li> <li>AOF日志：
+<ul><li>连续增量备份</li> <li>Redis收到客户端修改指令后，进行参数校验、逻辑处理、若没问题，就立即将指令文本存储到AOF日志中（先执行，再存盘）</li> <li>数据库重启时需要加载AOF日志进行指令重放，时间漫长，故需要定期重写AOF日志完成瘦身效果</li> <li>若机器宕机，日志内容没来得及写回磁盘，会出现日志丢失，通过linux的glibc提供的fsync函数可以将指定文件的内容强制从内核缓存到磁盘，在生产环境中，一般每隔1s执行一次fsync操作，此值可根据性能和安全性做出折衷的自定义配置</li></ul></li></ul></li> <li>运维
+<ul><li>快照通过子进程进行，比较耗资源，AOF的fsync也是耗时的IO操作</li> <li>通常Redis的主节点不会进行持久化操作，而在从节点进行</li></ul></li> <li>混合持久化
+<ul><li>重启Redis时，用rdb恢复内存会丢失大量数据，我们通常使用AOF日志重放，但又太慢了</li> <li>Redis4.0为了解决这个问题，将rdb文件的内容和增量的AOF日志文件存在一起，于是Redis重启时，可以先加载rdb的内容，然后再重放增量AOF日志，提升效率</li></ul></li></ul> <h2 id="管道"><a href="#管道" class="header-anchor">#</a> 管道</h2> <ul><li>Redis管道技术本质上是由客户端提供的，与服务器没啥关系</li> <li>管道操作的本质是客户端通过对管道中的指令列表改变读写顺序以大幅度节省IO时间
+<ul><li>正常连续执行多条指令，顺序是request-response-request-response，客户端经历了write-read-write-read过程，现在将其调整为 write-write-read-read</li> <li>两个连续的写操作和两个连续的读操作只花费一次网络来回</li></ul></li> <li>使用redis自带的压力测试工具redis-benchmark进行性能测试（机子为macbook pro 2018）</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> redis-benchmark -t <span class="token builtin class-name">set</span> -q
+SET: <span class="token number">96153.85</span> requests per second
+<span class="token operator">&gt;</span> redis-benchmark -t <span class="token builtin class-name">set</span> -P <span class="token number">2</span> -q <span class="token comment"># 增加了P参数，表示单个管道内并行的请求数量</span>
+SET: <span class="token number">182481.77</span> requests per second
+<span class="token comment"># P参数继续提升，终有一天会因为CPU处理能力而到达瓶颈</span>
+</code></pre></div><ul><li>深入理解管道本质
+<ul><li>网络传输流程
+<ul><li>1、客户端进程调用write将信息写到操作系统内核为套接字分配的发送缓冲send buffer中</li> <li>2、客户端操作系统内核将发送缓冲的内容发送到网卡，网卡硬件将数据通过网际路由送到服务器的网卡</li> <li>3、服务器操作系统内核将网卡的数据放到内核为套接字分配的接收缓冲recv buffer中</li> <li>4、服务器进程调用read从接收缓冲中取出消息进行处理</li> <li>5、服务器进程调用write将响应消息写到内核为套接字分配的发送缓冲send buffer中</li> <li>6、服务器操作系统内核将发送缓冲的内容发送到网卡，网卡硬件将数据通过网际路由送到客户端的网卡</li> <li>7、客户端操作系统内核将网卡数据放到内核为套接字分配的接收缓冲recv buffer中</li> <li>8、客户端进程调用read 从接收缓冲中取出消息返回给上层业务逻辑进行处理</li></ul></li> <li>write操作的耗时在于等待缓冲空出空闲空间，read操作的耗时在于等待数据到来，使缓冲不为空；故连续的write操作根本没有耗时</li></ul></li></ul> <h2 id="事务"><a href="#事务" class="header-anchor">#</a> 事务</h2> <ul><li>Redis事务指令分别是multi（指示事务开始），exec（指示事务执行），discard（丢弃事务缓存队列中的所有指令，在exec执行之前）</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> multi
+OK
+<span class="token operator">&gt;</span> incr books
+QUEUED
+<span class="token operator">&gt;</span> incr books
+QUEUED
+<span class="token operator">&gt;</span> <span class="token builtin class-name">exec</span> <span class="token comment"># 服务器一旦收到exec指令，才开始整个事务队列，执行完毕后一次返回所有指令的运行结果</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span>
+</code></pre></div><ul><li>Redis的事务不具备原子性，仅仅满足事务的隔离性中的串行化——当前执行的事务有着不被其他事务打断的权利（事务在遇到执行指令失败后，后面的指令还会继续执行，下面是一个例子）</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> multi
+OK
+<span class="token operator">&gt;</span> <span class="token builtin class-name">set</span> books java
+QUEUED
+<span class="token operator">&gt;</span> incr books
+QUEUED
+<span class="token operator">&gt;</span> <span class="token builtin class-name">set</span> poorman Ben
+QUEUED
+<span class="token operator">&gt;</span> <span class="token builtin class-name">exec</span>
+<span class="token number">1</span><span class="token punctuation">)</span> OK
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> ERR value is not an integer or out of range
+<span class="token number">3</span><span class="token punctuation">)</span> OK
+<span class="token operator">&gt;</span> get books
+<span class="token string">&quot;java&quot;</span>
+<span class="token operator">&gt;</span> get poorman
+<span class="token string">&quot;Ben&quot;</span>
+</code></pre></div><ul><li>通常Redis的客户端在执行事务时都会结合pipeline一起使用，可以将多次IO操作压缩为单次</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> redis
+pipe <span class="token operator">=</span> redis<span class="token punctuation">.</span>pipeline<span class="token punctuation">(</span>transaction<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+pipe<span class="token punctuation">.</span>multi<span class="token punctuation">(</span><span class="token punctuation">)</span>
+pipe<span class="token punctuation">.</span>incr<span class="token punctuation">(</span><span class="token string">&quot;books&quot;</span><span class="token punctuation">)</span>
+pipe<span class="token punctuation">.</span>incr<span class="token punctuation">(</span><span class="token string">&quot;books&quot;</span><span class="token punctuation">)</span>
+value <span class="token operator">=</span> pipe<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><ul><li>Redis提供watch机制，是一种乐观锁
+<ul><li>watch会在事务开始之前盯住变量，当事务执行时，Redis会检查关键变量自watch之后是否被修改，若关键变量已经被修改，exec指令会返回NULL回复告知客户端事务执行失败，此时客户端一般会选择重试</li> <li>禁止在multi和exec之间使用watch指令，必须在multi之前盯住关键变量</li></ul></li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+	do_watch<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  commands<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  multi<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  send_commands<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token keyword">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">except</span> WatchError<span class="token punctuation">:</span>
+    <span class="token keyword">continue</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> <span class="token function">watch</span> books
+OK
+<span class="token operator">&gt;</span> incr books <span class="token comment"># 被修改了</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token operator">&gt;</span> multi
+OK
+<span class="token operator">&gt;</span> incr books
+QUEUED
+<span class="token operator">&gt;</span> <span class="token builtin class-name">exec</span> <span class="token comment"># 事务执行失败</span>
+<span class="token punctuation">(</span>nil<span class="token punctuation">)</span>
+</code></pre></div><div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> redis
+
+<span class="token keyword">def</span> <span class="token function">key_for</span><span class="token punctuation">(</span>user_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> <span class="token string">&quot;account_{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>user_id<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">double_account</span><span class="token punctuation">(</span>client<span class="token punctuation">,</span> user_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  key <span class="token operator">=</span> key_for<span class="token punctuation">(</span>user_id<span class="token punctuation">)</span>
+  <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    client<span class="token punctuation">.</span>watch<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    value <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    value <span class="token operator">*=</span> <span class="token number">2</span>
+    pipe <span class="token operator">=</span> client<span class="token punctuation">.</span>pipeline<span class="token punctuation">(</span>transaction<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    pipe<span class="token punctuation">.</span>multi<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pipe<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+      pipe<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">except</span> redis<span class="token punctuation">.</span>WatchError<span class="token punctuation">:</span>
+      <span class="token keyword">continue</span>
+  <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+client <span class="token operator">=</span> redis<span class="token punctuation">.</span>StrictRedis<span class="token punctuation">(</span><span class="token punctuation">)</span>
+user_id <span class="token operator">=</span> <span class="token string">&quot;abc&quot;</span>
+client<span class="token punctuation">.</span>setnx<span class="token punctuation">(</span>key_for<span class="token punctuation">(</span>user_id<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>double_account<span class="token punctuation">(</span>client<span class="token punctuation">,</span> user_id<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="小道消息-pubsub"><a href="#小道消息-pubsub" class="header-anchor">#</a> 小道消息——PubSub</h2> <ul><li><p>消息多播允许生产者只生产一次消息，由中间件负责将消息复制到多个消息队列，每个消息队列由相应的消费组进行消费，这是分布式系统常用的解耦方式</p></li> <li><p>PublisherSubscriber（发布者/订阅者模式）代码</p> <ul><li>必须先启动消费者，然后再执行生产者</li> <li>消费者可以启动多个，PubSub保证它们收到相同的消息序列</li></ul></li> <li><p>消费者</p></li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> time
+<span class="token keyword">import</span> redis
+
+client <span class="token operator">=</span> redis<span class="token punctuation">.</span>StrictRedis<span class="token punctuation">(</span><span class="token punctuation">)</span>
+p <span class="token operator">=</span> client<span class="token punctuation">.</span>pubsub<span class="token punctuation">(</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>subscribe<span class="token punctuation">(</span><span class="token string">'lyj'</span><span class="token punctuation">)</span>
+<span class="token comment"># 休眠轮询可能导致消息处理不及时</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+  msg <span class="token operator">=</span> p<span class="token punctuation">.</span>get_message<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token keyword">not</span> msg<span class="token punctuation">:</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">continue</span>
+   <span class="token keyword">print</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+<span class="token comment"># 使用阻塞监听的办法来改进</span>
+<span class="token keyword">for</span> msg <span class="token keyword">in</span> p<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+</code></pre></div><ul><li>生产者</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> redis
+
+client <span class="token operator">=</span> redis<span class="token punctuation">.</span>StrictRedis<span class="token punctuation">(</span><span class="token punctuation">)</span>
+client<span class="token punctuation">.</span>publish<span class="token punctuation">(</span><span class="token string">'lyj'</span><span class="token punctuation">,</span> <span class="token string">'java'</span><span class="token punctuation">)</span>
+client<span class="token punctuation">.</span>publish<span class="token punctuation">(</span><span class="token string">'lyj'</span><span class="token punctuation">,</span> <span class="token string">'python'</span><span class="token punctuation">)</span>
+client<span class="token punctuation">.</span>publish<span class="token punctuation">(</span><span class="token string">'lyj'</span><span class="token punctuation">,</span> <span class="token string">'go'</span><span class="token punctuation">)</span>
+</code></pre></div><ul><li>Redis提供了模式订阅功能Pattern Subscribe，<code>psubscribe lyj.*</code>，这样即使生产者新增加了同模式的主题，如lyj.image，消费者也可以立即收到消息</li> <li>data是消息内容字符串，channel表示当前订阅主题的名称，type表示消息类型，若是普通类型，就是message，若是控制消息，比如订阅指令的反馈，它的类型就是subscribe，若是模式订阅的反馈，它的类型就是psubscribe，此外，还有取消订阅指令的反馈<code>unsubscribe</code>和<code>punsubscribe</code></li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span><span class="token string">'pattern'</span><span class="token punctuation">:</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'subscribe'</span><span class="token punctuation">,</span> <span class="token string">'channel'</span><span class="token punctuation">:</span><span class="token string">'lyj'</span><span class="token punctuation">,</span> <span class="token string">'data'</span><span class="token punctuation">:</span><span class="token string">'python'</span><span class="token punctuation">}</span>
+</code></pre></div><ul><li>pubsub的缺点
+<ul><li>若没有消费者，消息会被直接丢弃；</li> <li>消费者断线重连，会丢失消息</li> <li>redis停机重启，所有消息直接被丢弃</li></ul></li> <li>2018年6月Redis5.0新增了Stream数据结构，为Redis带来持久化消息队列的功能（mmp！害我看那么久）</li></ul> <h2 id="小对象压缩"><a href="#小对象压缩" class="header-anchor">#</a> 小对象压缩</h2> <ul><li><p>Redis若使用32bit进行编译，内部所有数据结构所使用的指针空间占用会少一半，若你的Redis使用内存小于4G，考虑使用此法节约内存，4G作为小站的缓存绰绰有余，不足还能通过增加实例来解决</p></li> <li><p>若Redis内部管理的集合数据结构很小，它会使用紧凑存储形式压缩存储</p></li> <li><p>Redis并不总是将空闲内存立即归还给操作系统，好比，来看戏的人坐不下就加凳子，看完一场凳子暂时不收，等下一波观众来；Redis为了保存自身结构的简单性，将内存分配的细节丢给第三方库去实现，目前使用jemalloc库来管理内存,可使用<code>info memory</code>指令来查看具体信息</p></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">10/20/2020, 8:55:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html" class="prev">
+        Chap1 基础和应用
+      </a></span> <span class="next"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html">
+        Chap3 集群
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="vuepress-eqn"></div><span class="vuepress-eq"></span><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/vuepressBlog/assets/js/app.d9046163.js" defer></script><script src="/vuepressBlog/assets/js/2.449f8f2c.js" defer></script><script src="/vuepressBlog/assets/js/56.771dc482.js" defer></script>
+  </body>
+</html>

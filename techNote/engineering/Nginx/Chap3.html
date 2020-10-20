@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chap3 流量管理 | lyj Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="我来到，我看见，我记录">
+    
+    <link rel="preload" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css" as="style"><link rel="preload" href="/vuepressBlog/assets/js/app.d9046163.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/2.449f8f2c.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/47.deef082f.js" as="script"><link rel="prefetch" href="/vuepressBlog/assets/js/10.5bc756b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/11.9a163bb2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/12.a8140d6d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/13.c05ca4b7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/14.73b57a43.js"><link rel="prefetch" href="/vuepressBlog/assets/js/15.b741e784.js"><link rel="prefetch" href="/vuepressBlog/assets/js/16.9f45c2d2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/17.26d9a8cc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/18.799cff0d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/19.ea6c0fd5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/20.04acbd3d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/21.603fe43e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/22.4ae699a6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/23.fa154d58.js"><link rel="prefetch" href="/vuepressBlog/assets/js/24.bd9f7b7c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/25.395a39b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/26.4df13269.js"><link rel="prefetch" href="/vuepressBlog/assets/js/27.106be358.js"><link rel="prefetch" href="/vuepressBlog/assets/js/28.e7be13aa.js"><link rel="prefetch" href="/vuepressBlog/assets/js/29.9c12446a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/3.eee8ddfd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/30.2a7c55a3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/31.79f9966c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/32.17e47231.js"><link rel="prefetch" href="/vuepressBlog/assets/js/33.9a171051.js"><link rel="prefetch" href="/vuepressBlog/assets/js/34.c5965f4e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/35.2a2f84f7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/36.ffcb560d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/37.2a643ffc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/38.390133cf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/39.99aa52c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/4.15a5030c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/40.d9e18abd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/41.b72c3c0e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/42.bfc4174b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/43.b147a9c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/44.e2870c7b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/45.b17d0a4b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/46.b865aed6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/48.ffe6ebd3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/49.8a66098e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/5.e509b048.js"><link rel="prefetch" href="/vuepressBlog/assets/js/50.e8b51f7e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/51.74edccd7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/52.06c14cd4.js"><link rel="prefetch" href="/vuepressBlog/assets/js/53.3482a1b1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/54.aeb745bd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/55.9b6a8dbf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/56.771dc482.js"><link rel="prefetch" href="/vuepressBlog/assets/js/57.3ed3e1eb.js"><link rel="prefetch" href="/vuepressBlog/assets/js/58.e8e52be3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/59.756b7e8d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/6.293f4ee1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/60.e9172c5f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/7.25ada86b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/8.238e2de1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/9.b2fe1457.js">
+    <link rel="stylesheet" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressBlog/" class="home-link router-link-active"><!----> <span class="site-name">lyj Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Nginx 学习笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap1.html" class="sidebar-link">Chap1 基础和应用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap2.html" class="sidebar-link">Chap2 高性能负载均衡</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap3.html" aria-current="page" class="active sidebar-link">Chap3 流量管理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap4.html" class="sidebar-link">Chap4 大规模可扩展的内容缓存</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap5.html" class="sidebar-link">Chap5 可编程和自动化</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap6.html" class="sidebar-link">Chap6 认证</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap7.html" class="sidebar-link">Chap7 安全控制</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap8.html" class="sidebar-link">Chap8 HTTP2</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap9.html" class="sidebar-link">Chap9 成熟的媒体流</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap10.html" class="sidebar-link">Chap10 云部署</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap11.html" class="sidebar-link">Chap11 容器和微服务</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap12.html" class="sidebar-link">Chap12 高可用部署模式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap13.html" class="sidebar-link">Chap13 进阶活动监控</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap14.html" class="sidebar-link">Chap14 调试、错误定位、请求追踪</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap15.html" class="sidebar-link">Chap15 性能调优</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap16.html" class="sidebar-link">Chap16 实用操作建议和总结</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="chap3-流量管理"><a href="#chap3-流量管理" class="header-anchor">#</a> Chap3 流量管理</h1> <h4 id="简介"><a href="#简介" class="header-anchor">#</a> 简介</h4> <ul><li>Nginx作为一个流量管理器，能百分比分割用户请求，使用用户的地理信息，并控制流量的速度，连接数，限制带宽，这些特征能混合起来创造无数可能</li></ul> <h4 id="a-b-testing"><a href="#a-b-testing" class="header-anchor">#</a> A/B Testing</h4> <ul><li>需要将用户分割到两个或多个的文件或者应用去完成在线测试</li> <li>在电商网站的前端A/B测试，验证市场</li> <li>此功能可以实现应用的灰度发布，减少错误的影响范围</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">split_clients</span> <span class="token string">&quot;${remote_addr}AAA&quot;</span> <span class="token variable">$variant</span> <span class="token punctuation">{</span>
+  <span class="token number">20.0</span><span class="token operator">%</span> <span class="token string">&quot;backendv2&quot;</span><span class="token punctuation">;</span>
+  <span class="token operator">*</span>			<span class="token string">&quot;backendv1&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+  <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$variant</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>根据用户的IP地址来哈希，将20%的用户分到第二版的后端，剩下的用户分到第一版的后端</li> <li>其中，backendv1和backendv2代表两个上游服务器集群，再按照上一篇讲的分别配置两个集群即可</li></ul> <h4 id="geoip-模块和数据库"><a href="#geoip-模块和数据库" class="header-anchor">#</a> GeoIP 模块和数据库</h4> <ul><li>用于记录和校验用户连接的位置，关于数据库更新升级的问题，参见<a href="https://github.com/maxmind/geoipupdate" target="_blank" rel="noopener noreferrer">这里<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>此模块能提供以下变量
+<ul><li><code>geoip_country_code</code>：两个字母的国家编码，如CN，US</li> <li><code>geoip_country_code3</code>:三个字母的国家编码，如CHN，USA</li> <li><code>geoip_country_name</code> ：国家全称，如'China', 'United States'</li> <li><code>geoip_city_country_code</code></li> <li><code>geoip_city_country_code3</code></li> <li><code>geoip_city_country_name</code></li> <li><code>geoip_city_continent_code</code></li> <li><code>geoip_latitude</code></li> <li><code>geoip_longtitude</code></li> <li><code>geoip_postal_code</code></li> <li><code>geoip_region</code></li> <li><code>geoip_region_name</code></li> <li><code>geoip_area_code</code>:仅在美国有效，返回三位的电话区号</li></ul></li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 安装geoip模块 Debian/Ubuntu or RHEL/CentOS， 商业版的装 nginx-plus-module-geoip</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> nginx-module-geoip  or   yum <span class="token function">install</span> nginx-module-geoip
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 安装geoip的国家和城市数据库</span>
+<span class="token function">mkdir</span> /etc/nginx/geoip
+<span class="token builtin class-name">cd</span> /etc/nginx/geoip
+<span class="token function">wget</span> <span class="token string">&quot;http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz&quot;</span>
+gunzip GeoIP.dat.gz
+<span class="token function">wget</span> <span class="token string">&quot;http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz&quot;</span>
+gunzip GeoLiteCity.dat.gz
+</code></pre></div><div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token comment"># 在Nginx配置文件中添加</span>
+
+load_module <span class="token string">&quot;/usr/lib61/nginx/modules/ngx_http_geoip_module.so&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">http</span> <span class="token punctuation">{</span>
+  <span class="token keyword">geoip_country</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>geoip<span class="token operator">/</span>GeoIP<span class="token punctuation">.</span>dat<span class="token punctuation">;</span>
+  <span class="token keyword">geoip_city</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>geoip<span class="token operator">/</span>GeoLiteCity<span class="token punctuation">.</span>dat<span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="根据国家限流"><a href="#根据国家限流" class="header-anchor">#</a> 根据国家限流</h4> <ul><li>这是根据geoip模块的一个字段进行映射限流，可以尝试使用其他字段，达到组合拳的效果</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code>load_module <span class="token string">&quot;/usr/lib61/nginx/modules/ngx_http_geoip_module.so&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">http</span> <span class="token punctuation">{</span>
+  <span class="token keyword">map</span> <span class="token variable">$geoip_country_code</span> <span class="token variable">$country_access</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;US&quot;</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token string">&quot;RU&quot;</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+    default <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$country_access</span> <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">403</span><span class="token punctuation">;</span> <span class="token comment"># 仅美国和俄罗斯可以访问</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="定位原始用户"><a href="#定位原始用户" class="header-anchor">#</a> 定位原始用户</h4> <div class="language-nginx extra-class"><pre class="language-nginx"><code>load_module <span class="token string">&quot;/usr/lib64/nginx/modules/ngx_http_geoip_module.so&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">http</span> <span class="token punctuation">{</span>
+        <span class="token keyword">geoip_country</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>geoip<span class="token operator">/</span>GeoIP<span class="token punctuation">.</span>dat<span class="token punctuation">;</span>
+        <span class="token keyword">geoip_city</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>geoip<span class="token operator">/</span>GeoLiteCity<span class="token punctuation">.</span>dat<span class="token punctuation">;</span>
+  			<span class="token comment"># 单IP定义或者使用CIDR方式定义可信地址，对于可信地址，nginx通过请求头中的 X-Forwarded-For 来寻找用户IP</span>
+        geoip_proxy <span class="token number">10.0</span><span class="token number">.16</span><span class="token number">.0</span><span class="token operator">/</span><span class="token number">26</span><span class="token punctuation">;</span>  
+        geoip_proxy_recursive on<span class="token punctuation">;</span>  <span class="token comment"># 递归找下去，直到第一个不可信的地址</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="限制连接"><a href="#限制连接" class="header-anchor">#</a> 限制连接</h4> <ul><li>根据预定义的关键字，如用户IP，来限制连接的数量，一定程度上避免资源滥用</li> <li>limit_conn,limit_conn_status字段在http，server，location的context中有效</li> <li>limit_conn_zone字段只在http的context中有效</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">http</span> <span class="token punctuation">{</span>
+	<span class="token keyword">limit_conn_zone</span> <span class="token variable">$binary_remote_addr</span> zone<span class="token operator">=</span>limitbyaddr<span class="token punctuation">:</span><span class="token number">10</span>m<span class="token punctuation">;</span> <span class="token comment"># 建造了10MB大小的共享内存</span>
+  limit_conn_status <span class="token number">429</span><span class="token punctuation">;</span>  <span class="token comment"># 429代表请求过多，建议用这个取代默认值503，因为503代表服务不可用</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword">server</span> <span class="token punctuation">{</span>
+  	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">limit_conn</span> limitbyaddr <span class="token number">40</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="限制速度"><a href="#限制速度" class="header-anchor">#</a> 限制速度</h4> <ul><li>根据预定义关键字，如用户IP，限制请求速度，避免DNS攻击</li> <li>可定义字段<code>limit_req_log_level</code>,默认级别为error，可定义为info，notice，warn，error，记录超速访问的事件</li> <li>关于burst 和 nodelay 的精确<a href="https://blog.csdn.net/hellow__world/article/details/78658041" target="_blank" rel="noopener noreferrer">解释<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <ul><li>burst=5：burst爆发的意思，这个配置的意思是设置一个大小为5的缓冲区当有大量请求（爆发）过来时，超过了<strong>访问频次</strong>限制的<strong>请求可以先放到这个缓冲区内等待，但是这个等待区里的位置只有5个</strong>，超过的请求会直接报错返回</li> <li>nodelay：
+<ul><li><strong>如果设置，会在瞬时提供处理(burst + rate)个请求的能力</strong>，请求超过（<strong>burst + rate）<strong>的时候就会直接返回503，永远</strong>不存在请求需要等待的情况</strong>。（这里的rate的单位是：r/s）</li> <li>如果没有设置，则所有请求会依次等待排队</li></ul></li></ul></li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">http</span> <span class="token punctuation">{</span>
+	<span class="token keyword">limit_req_zone</span> <span class="token variable">$binary_remote_addr</span> zone<span class="token operator">=</span>limitbyaddr<span class="token punctuation">:</span><span class="token number">10</span>m rate<span class="token operator">=</span><span class="token number">1</span>r<span class="token operator">/</span>s<span class="token punctuation">;</span>
+  limit_req_status <span class="token number">429</span><span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword">server</span> <span class="token punctuation">{</span>
+  	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+		<span class="token comment"># burst默认为0，nodelay是可选参数</span>
+    <span class="token keyword">limit_req</span> zone<span class="token operator">=</span>limitbyaddr burst<span class="token operator">=</span><span class="token number">10</span> nodelay<span class="token punctuation">;</span> 
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="限制带宽"><a href="#限制带宽" class="header-anchor">#</a> 限制带宽</h4> <ul><li>对于你的资源，限制单个用户的下载带宽</li> <li>以下代码：对于下载download文件夹下的资源，在下载10MB过后，将被限速为1MB/s</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">/</span>download<span class="token operator">/</span> <span class="token punctuation">{</span>
+  <span class="token keyword">limit_rate_after</span> <span class="token number">10</span>m<span class="token punctuation">;</span> <span class="token comment"># 默认值为0，无限制</span>
+  <span class="token keyword">limit_rate</span> <span class="token number">1</span>m<span class="token punctuation">;</span> <span class="token comment"># 默认值为0，无限制</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">10/20/2020, 8:55:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressBlog/techNote/engineering/Nginx/Chap2.html" class="prev">
+        Chap2 高性能负载均衡
+      </a></span> <span class="next"><a href="/vuepressBlog/techNote/engineering/Nginx/Chap4.html">
+        Chap4 大规模可扩展的内容缓存
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="vuepress-eqn"></div><span class="vuepress-eq"></span><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/vuepressBlog/assets/js/app.d9046163.js" defer></script><script src="/vuepressBlog/assets/js/2.449f8f2c.js" defer></script><script src="/vuepressBlog/assets/js/47.deef082f.js" defer></script>
+  </body>
+</html>

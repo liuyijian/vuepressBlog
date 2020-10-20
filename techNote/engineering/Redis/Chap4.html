@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chap4 拓展 | lyj Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="我来到，我看见，我记录">
+    
+    <link rel="preload" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css" as="style"><link rel="preload" href="/vuepressBlog/assets/js/app.d9046163.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/2.449f8f2c.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/58.e8e52be3.js" as="script"><link rel="prefetch" href="/vuepressBlog/assets/js/10.5bc756b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/11.9a163bb2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/12.a8140d6d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/13.c05ca4b7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/14.73b57a43.js"><link rel="prefetch" href="/vuepressBlog/assets/js/15.b741e784.js"><link rel="prefetch" href="/vuepressBlog/assets/js/16.9f45c2d2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/17.26d9a8cc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/18.799cff0d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/19.ea6c0fd5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/20.04acbd3d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/21.603fe43e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/22.4ae699a6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/23.fa154d58.js"><link rel="prefetch" href="/vuepressBlog/assets/js/24.bd9f7b7c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/25.395a39b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/26.4df13269.js"><link rel="prefetch" href="/vuepressBlog/assets/js/27.106be358.js"><link rel="prefetch" href="/vuepressBlog/assets/js/28.e7be13aa.js"><link rel="prefetch" href="/vuepressBlog/assets/js/29.9c12446a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/3.eee8ddfd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/30.2a7c55a3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/31.79f9966c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/32.17e47231.js"><link rel="prefetch" href="/vuepressBlog/assets/js/33.9a171051.js"><link rel="prefetch" href="/vuepressBlog/assets/js/34.c5965f4e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/35.2a2f84f7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/36.ffcb560d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/37.2a643ffc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/38.390133cf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/39.99aa52c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/4.15a5030c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/40.d9e18abd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/41.b72c3c0e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/42.bfc4174b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/43.b147a9c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/44.e2870c7b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/45.b17d0a4b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/46.b865aed6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/47.deef082f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/48.ffe6ebd3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/49.8a66098e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/5.e509b048.js"><link rel="prefetch" href="/vuepressBlog/assets/js/50.e8b51f7e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/51.74edccd7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/52.06c14cd4.js"><link rel="prefetch" href="/vuepressBlog/assets/js/53.3482a1b1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/54.aeb745bd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/55.9b6a8dbf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/56.771dc482.js"><link rel="prefetch" href="/vuepressBlog/assets/js/57.3ed3e1eb.js"><link rel="prefetch" href="/vuepressBlog/assets/js/59.756b7e8d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/6.293f4ee1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/60.e9172c5f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/7.25ada86b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/8.238e2de1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/9.b2fe1457.js">
+    <link rel="stylesheet" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressBlog/" class="home-link router-link-active"><!----> <span class="site-name">lyj Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link router-link-active">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link router-link-active">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Redis 学习笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html" class="sidebar-link">Chap1 基础和应用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#简介" class="sidebar-link">简介</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#_5种基础数据结构" class="sidebar-link">5种基础数据结构</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#分布式锁" class="sidebar-link">分布式锁</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#延时队列" class="sidebar-link">延时队列</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#位图" class="sidebar-link">位图</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#四两拨千斤-hyperloglog" class="sidebar-link">四两拨千斤——HyperLogLog</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#布隆过滤器" class="sidebar-link">布隆过滤器</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#断尾求生-简单限流" class="sidebar-link">断尾求生——简单限流</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#一毛不拔-漏斗限流" class="sidebar-link">一毛不拔——漏斗限流</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#近水楼台-geohash" class="sidebar-link">近水楼台——GeoHash</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap1.html#大海捞针-scan" class="sidebar-link">大海捞针——scan</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html" class="sidebar-link">Chap2 原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#线程io模型" class="sidebar-link">线程IO模型</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#通信协议" class="sidebar-link">通信协议</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#持久化" class="sidebar-link">持久化</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#管道" class="sidebar-link">管道</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#事务" class="sidebar-link">事务</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#小道消息-pubsub" class="sidebar-link">小道消息——PubSub</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap2.html#小对象压缩" class="sidebar-link">小对象压缩</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html" class="sidebar-link">Chap3 集群</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#主从同步" class="sidebar-link">主从同步</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#李代桃僵-sentinel-哨兵" class="sidebar-link">李代桃僵——Sentinel（哨兵）</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#分而治之-codis" class="sidebar-link">分而治之——Codis</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html#众志成城-redis-cluster" class="sidebar-link">众志成城——Redis Cluster</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html" aria-current="page" class="active sidebar-link">Chap4 拓展</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#耳听八方-stream" class="sidebar-link">耳听八方——Stream</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#无所不知-info指令" class="sidebar-link">无所不知——info指令</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#拾遗补漏-再谈分布式锁" class="sidebar-link">拾遗补漏——再谈分布式锁</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#朝生暮死-过期策略" class="sidebar-link">朝生暮死——过期策略</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#优胜劣汰-lru" class="sidebar-link">优胜劣汰——LRU</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#平波缓进-懒惰删除" class="sidebar-link">平波缓进——懒惰删除</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#妙手仁心-优雅使用jedis" class="sidebar-link">妙手仁心——优雅使用Jedis</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#居安思危-保护redis" class="sidebar-link">居安思危——保护Redis</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Redis/Chap4.html#隔墙有耳-redis安全通信" class="sidebar-link">隔墙有耳——Redis安全通信</a></li></ul></li><li><a href="/vuepressBlog/techNote/engineering/Redis/Chap5.html" class="sidebar-link">Chap5 源码</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="chap4-拓展"><a href="#chap4-拓展" class="header-anchor">#</a> Chap4 拓展</h1> <h2 id="耳听八方-stream"><a href="#耳听八方-stream" class="header-anchor">#</a> 耳听八方——Stream</h2> <ul><li>Redis5.0增加了数据结构stream，是一个新的强大的支持多播的可持久化消息队列</li> <li>每个Stream有唯一名称，就是Redis的key，在首次使用xadd指令增加消息时创建</li> <li>每个Stream可以挂多个消费组，每个消费组有游标last_delivered_id在Stream数组上前移，表示当前消费组已经消费到哪条消息</li> <li>每个消费组在Stream内有唯一名称，消费组需要单独的xgroup create进行创建，需要制定从Stream的某个消息ID开始消费</li> <li>每个消费组状态独立，同一份Stream内的消息会被每个消费组消费到</li> <li>同一个消费组可以挂接多个消费者，这些消费者是竞争关系，任一消费者读取了消息都会将last_delivered_id前移，每个消费者在组内有唯一名称</li> <li>消费者内部有一个状态变量pending_ids，记录了当前已经被客户端读取，但没有ACK的消息；此PEL变量确保客户端至少消费了信息一次，而不会因为网络传输丢失。若客户端重连，xreadgroup的起始消息ID一般设为0-0，表示读取所有的PEL消息以及自last_delivered_id之后的新消息。处理完消息之后记得ACK一下，否则PEL占用的内存就会一直放大</li> <li>Stream的消费模型借鉴了Kafka的消费分组概念，弥补了Redis PubSub不能持久化消息的缺陷，但Stream不能自动Partition，需要在客户端里对消息进行hash取模来手动partition</li></ul> <h4 id="消息id和内容"><a href="#消息id和内容" class="header-anchor">#</a> 消息ID和内容</h4> <ul><li>形式是timestampInMillis-sequence，如1527846880572-5，表示当前消息在毫秒时间戳1527846880572下产生的第5条消息</li> <li>消息ID可以由服务器生成，也可以客户制定，形式必须是“整数-整数”，且后入消息的ID要大于前入的消息ID</li> <li>消息内容是键值对</li></ul> <h4 id="增删改查"><a href="#增删改查" class="header-anchor">#</a> 增删改查</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># * 号表示服务器自动生成ID，后面顺序跟着key value [key value]...，返回消息ID</span>
+<span class="token operator">&gt;</span> xadd lyj * name lyj age <span class="token number">22</span>
+<span class="token string">&quot;1572927022918-0&quot;</span>
+<span class="token operator">&gt;</span> xadd lyj * name fxy age <span class="token number">23</span>
+<span class="token string">&quot;1572927072170-0&quot;</span>
+<span class="token operator">&gt;</span> xlen lyj
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span>
+<span class="token comment"># - 表示最小值，+ 表示最大值</span>
+<span class="token operator">&gt;</span> xrange lyj - +
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572927022918-0&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj&quot;</span>
+      <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+      <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;22&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572927072170-0&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;fxy&quot;</span>
+      <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+      <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;23&quot;</span>
+<span class="token comment"># 指定列表范围</span>
+<span class="token operator">&gt;</span> xrange lyj <span class="token number">1572927022919</span>-0 +
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572927072170-0&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;fxy&quot;</span>
+      <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+      <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;23&quot;</span>
+<span class="token comment"># 删除特定消息</span>
+<span class="token operator">&gt;</span> xdel lyj <span class="token number">1572927022918</span>-0
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token comment"># 删除整个Stream</span>
+<span class="token operator">&gt;</span> del lyj
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+</code></pre></div><h4 id="独立消费"><a href="#独立消费" class="header-anchor">#</a> 独立消费</h4> <ul><li>Redis设计了单独的消费指令xread，可以将Stream当成普通消息队列（list）来使用，完全忽略消费组的存在</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 从Stream头部读取两条消息</span>
+<span class="token operator">&gt;</span> xread count <span class="token number">2</span> streams lyj <span class="token number">0</span>-0
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930110971-0&quot;</span>
+         <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+            <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj&quot;</span>
+            <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+            <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;22&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930118081-0&quot;</span>
+         <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+            <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;fxy&quot;</span>
+            <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+            <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;23&quot;</span>
+<span class="token comment"># 从Stream尾部读取一条消息</span>
+<span class="token operator">&gt;</span> xread count <span class="token number">1</span> streams lyj $
+<span class="token punctuation">(</span>nil<span class="token punctuation">)</span>
+<span class="token comment"># 从尾部等待新消息到来，等待1000ms，若无，返回nil；若设为0，则一直阻塞</span>
+<span class="token operator">&gt;</span> xread block <span class="token number">1000</span> count <span class="token number">1</span> streams lyj $
+<span class="token punctuation">(</span>nil<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">1</span>.16s<span class="token punctuation">)</span>
+</code></pre></div><h4 id="创建消费组"><a href="#创建消费组" class="header-anchor">#</a> 创建消费组</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 表示从头部开始消费</span>
+<span class="token operator">&gt;</span> xgroup create lyj lyj-head <span class="token number">0</span>-0
+OK
+<span class="token comment"># 表示从尾部开始消费，只接受新消息，忽略当前已有消息</span>
+<span class="token operator">&gt;</span> xgroup create lyj lyj-back $
+OK
+<span class="token comment"># 获取stream消息</span>
+<span class="token operator">&gt;</span> xinfo stream lyj
+ <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;length&quot;</span>
+ <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">3</span>
+ <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;radix-tree-keys&quot;</span>
+ <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+ <span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">&quot;radix-tree-nodes&quot;</span>
+ <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span>
+ <span class="token number">7</span><span class="token punctuation">)</span> <span class="token string">&quot;groups&quot;</span>
+ <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span>
+ <span class="token number">9</span><span class="token punctuation">)</span> <span class="token string">&quot;last-generated-id&quot;</span>
+<span class="token number">10</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930125815-0&quot;</span>
+<span class="token number">11</span><span class="token punctuation">)</span> <span class="token string">&quot;first-entry&quot;</span>
+<span class="token number">12</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930110971-0&quot;</span>
+    <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+       <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj&quot;</span>
+       <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+       <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;22&quot;</span>
+<span class="token number">13</span><span class="token punctuation">)</span> <span class="token string">&quot;last-entry&quot;</span>
+<span class="token number">14</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930125815-0&quot;</span>
+    <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+       <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;jyt&quot;</span>
+       <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+       <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;21&quot;</span>
+<span class="token comment"># 获取stream的消费组信息</span>
+<span class="token operator">&gt;</span> xinfo <span class="token function">groups</span> lyj
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj-back&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;consumers&quot;</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+   <span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">&quot;pending&quot;</span>
+   <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>  <span class="token comment"># 该消费组没有正在处理的消息</span>
+   <span class="token number">7</span><span class="token punctuation">)</span> <span class="token string">&quot;last-delivered-id&quot;</span>
+   <span class="token number">8</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930125815-0&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj-head&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;consumers&quot;</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+   <span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">&quot;pending&quot;</span>
+   <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+   <span class="token number">7</span><span class="token punctuation">)</span> <span class="token string">&quot;last-delivered-id&quot;</span>
+   <span class="token number">8</span><span class="token punctuation">)</span> <span class="token string">&quot;0-0&quot;</span>
+</code></pre></div><h4 id="消费"><a href="#消费" class="header-anchor">#</a> 消费</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># &gt; 号表示从当前消费组的last_delivered_id 后面开始读，每当消费者读取一条消息，last_delivered_id 前移</span>
+<span class="token operator">&gt;</span> xreadgroup GROUP lyj-head c1 count <span class="token number">1</span> streams lyj <span class="token operator">&gt;</span>
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930110971-0&quot;</span>
+         <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+            <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj&quot;</span>
+            <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+            <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;22&quot;</span>
+<span class="token comment"># 读三条，实际返回两条，证明已经读完</span>
+<span class="token operator">&gt;</span> xreadgroup GROUP lyj-head c1 count <span class="token number">3</span> streams lyj <span class="token operator">&gt;</span>
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930118081-0&quot;</span>
+         <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+            <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;fxy&quot;</span>
+            <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+            <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;23&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930125815-0&quot;</span>
+         <span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+            <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;jyt&quot;</span>
+            <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;age&quot;</span>
+            <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;21&quot;</span>
+<span class="token comment"># 再读就nil</span>
+<span class="token operator">&gt;</span> xreadgroup GROUP lyj-head c1 count <span class="token number">1</span> streams lyj <span class="token operator">&gt;</span>
+<span class="token punctuation">(</span>nil<span class="token punctuation">)</span>
+<span class="token comment"># 也可以阻塞读，同理，t=0则永久等待</span>
+<span class="token operator">&gt;</span> xreadgroup GROUP lyj-head c1 block <span class="token number">1000</span> count <span class="token number">1</span> streams lyj <span class="token operator">&gt;</span>
+<span class="token punctuation">(</span>nil<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">1</span>.12s<span class="token punctuation">)</span>
+<span class="token comment"># 观察消费组信息</span>
+<span class="token operator">&gt;</span> xinfo <span class="token function">groups</span> lyj
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj-back&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;consumers&quot;</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+   <span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">&quot;pending&quot;</span>
+   <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+   <span class="token number">7</span><span class="token punctuation">)</span> <span class="token string">&quot;last-delivered-id&quot;</span>
+   <span class="token number">8</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930125815-0&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;lyj-head&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;consumers&quot;</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>  <span class="token comment"># 1个消费者</span>
+   <span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">&quot;pending&quot;</span>
+   <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">3</span>  <span class="token comment"># 3条正在处理的信息还没有ack</span>
+   <span class="token number">7</span><span class="token punctuation">)</span> <span class="token string">&quot;last-delivered-id&quot;</span>
+   <span class="token number">8</span><span class="token punctuation">)</span> <span class="token string">&quot;1572930125815-0&quot;</span>
+<span class="token comment"># 观察消费者信息</span>
+<span class="token operator">&gt;</span>  xinfo consumers lyj lyj-head
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;name&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;c1&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;pending&quot;</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">3</span> <span class="token comment"># 共3条待处理消息</span>
+   <span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">&quot;idle&quot;</span>
+   <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">266137</span> <span class="token comment"># 空闲了多长时间ms没有读取消息</span>
+<span class="token comment"># ACK所有消息,可以清空PEL了</span>
+<span class="token operator">&gt;</span> xack lyj lyj-head <span class="token number">1572930110971</span>-0 <span class="token number">1572930118081</span>-0 <span class="token number">1572930125815</span>-0
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">3</span>
+</code></pre></div><h4 id="定长stream"><a href="#定长stream" class="header-anchor">#</a> 定长Stream</h4> <ul><li>指定消息队列窗口大小，满了则淘汰掉老消息</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> xadd lyj-fix maxlen <span class="token number">3</span> * name lyj age <span class="token number">23</span>
+<span class="token string">&quot;1572933264742-0&quot;</span>
+</code></pre></div><h2 id="无所不知-info指令"><a href="#无所不知-info指令" class="header-anchor">#</a> 无所不知——info指令</h2> <ul><li>info 指令显示的信息繁多，分为9大块，每一块都有非常多的参数</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> info server <span class="token comment"># 服务器运行环境参数</span>
+<span class="token comment"># Server</span>
+redis_version:5.0.1
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:3113f469cbe716d3
+redis_mode:standalone
+os:Darwin <span class="token number">17.7</span>.0 x86_64
+arch_bits:64
+multiplexing_api:kqueue
+atomicvar_api:atomic-builtin
+gcc_version:4.2.1
+process_id:30549
+run_id:489d87e4062a88b4196b9d67933d3d82b61920f0
+tcp_port:6379
+uptime_in_seconds:3253267
+uptime_in_days:37
+hz:10
+configured_hz:10
+lru_clock:12652562
+executable:/usr/local/opt/redis/bin/redis-server
+config_file:/usr/local/etc/redis.conf
+
+<span class="token operator">&gt;</span> info clients <span class="token comment"># 客户端相关信息</span>
+<span class="token comment"># Clients</span>
+connected_clients:1 <span class="token comment"># 通过观察数量来确定是否存在意料之外的连接，若不对劲，可以使用client list指令列出所有客户端链接地址的源头</span>
+client_recent_max_input_buffer:2
+client_recent_max_output_buffer:0
+blocked_clients:0
+
+<span class="token operator">&gt;</span> info memory <span class="token comment"># 服务器运行内存统计数据</span>
+<span class="token comment"># Memory</span>
+used_memory:1038304
+used_memory_human:1013.97K <span class="token comment"># 内存分配器从操作系统分配的内存总量，若单个Redis内存占用过大，考虑集群</span>
+used_memory_rss:2166784
+used_memory_rss_human:2.07M <span class="token comment"># 操作系统看到的内存占用</span>
+used_memory_peak:4424192
+used_memory_peak_human:4.22M <span class="token comment"># Redis内存消耗的峰值</span>
+used_memory_peak_perc:23.47%
+used_memory_overhead:1036694
+used_memory_startup:987008
+used_memory_dataset:1610
+used_memory_dataset_perc:3.14%
+allocator_allocated:1004960
+allocator_active:2128896
+allocator_resident:2128896
+total_system_memory:17179869184
+total_system_memory_human:16.00G
+used_memory_lua:37888
+used_memory_lua_human:37.00K <span class="token comment"># lua脚本引擎占用的内存大小</span>
+used_memory_scripts:0
+used_memory_scripts_human:0B
+number_of_cached_scripts:0
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+allocator_frag_ratio:2.12
+allocator_frag_bytes:1123936
+allocator_rss_ratio:1.00
+allocator_rss_bytes:0
+rss_overhead_ratio:1.02
+rss_overhead_bytes:37888
+mem_fragmentation_ratio:2.16
+mem_fragmentation_bytes:1161824
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_clients_slaves:0
+mem_clients_normal:49686
+mem_aof_buffer:0
+mem_allocator:libc
+active_defrag_running:0
+lazyfree_pending_objects:0
+
+<span class="token operator">&gt;</span> info persistence <span class="token comment"># 持久化信息</span>
+<span class="token comment"># Persistence</span>
+loading:0
+rdb_changes_since_last_save:1
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1572933276
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:0
+rdb_current_bgsave_time_sec:-1
+rdb_last_cow_size:0
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_last_write_status:ok
+aof_last_cow_size:0
+
+<span class="token operator">&gt;</span> info stats <span class="token comment"># 通用统计数据</span>
+<span class="token comment"># Stats</span>
+total_connections_received:508
+total_commands_processed:1004020
+instantaneous_ops_per_sec:0 <span class="token comment"># 所有客户端每秒发送到服务器的指令数，若OPS过高，可以通过monitor指令快速观察哪些key访问频繁，并进行业务优化，减少IO次数</span>
+total_net_input_bytes:45181681
+total_net_output_bytes:5119095
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+rejected_connections:0 <span class="token comment"># 表示因为超过最大连接数限制而拒绝的客户端连接次数，若此数据过大，则意味服务器的最大连接数设置得过低，应调整maxclients参数</span>
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0 <span class="token comment"># 主从半同步复制失败次数，根据此次数决定是否需要扩大积压缓冲区</span>
+expired_keys:1
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+evicted_keys:0
+keyspace_hits:41
+keyspace_misses:1
+pubsub_channels:0
+pubsub_patterns:0
+latest_fork_usec:721
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+
+<span class="token operator">&gt;</span> info replication <span class="token comment"># 主从复制相关信息</span>
+<span class="token comment"># Replication</span>
+role:master
+connected_slaves:0
+master_replid:194e73217111b2a3f6ea4ea531c6c0da44d2e844
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576 <span class="token comment"># 积压缓冲区大小，影响主从复制的效率，若经常出现修改指令且网络环境一般，则应适当调大积压缓冲区，避免进入全量同步模式，设为几十MB就够了，闲的话，设为几MB</span>
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+<span class="token operator">&gt;</span> info CPU <span class="token comment"># CPU使用情况</span>
+<span class="token comment"># CPU</span>
+used_cpu_sys:232.367308
+used_cpu_user:172.890471
+used_cpu_sys_children:0.035690
+used_cpu_user_children:0.008318
+
+<span class="token operator">&gt;</span> info cluster <span class="token comment"># 集群信息</span>
+<span class="token comment"># Cluster</span>
+cluster_enabled:0
+
+<span class="token operator">&gt;</span> info keyspace <span class="token comment"># 键值对统计数量信息</span>
+<span class="token comment"># Keyspace</span>
+db0:keys<span class="token operator">=</span><span class="token number">1</span>,expires<span class="token operator">=</span><span class="token number">0</span>,avg_ttl<span class="token operator">=</span><span class="token number">0</span>
+</code></pre></div><h2 id="拾遗补漏-再谈分布式锁"><a href="#拾遗补漏-再谈分布式锁" class="header-anchor">#</a> 拾遗补漏——再谈分布式锁</h2> <ul><li>Sentinel集群中，若客户端A在主节点申请成功了一把锁后，主节点突然挂掉了，从节点还不知道A这个操作，然后Sentinel会将从节点变成主节点，客户端B过来请求加锁时，会成功，这样，同一把锁被两个客户端同时拥有，产生不安全性</li> <li>仅在主从发生failover下产生，且时间极短，业务系统多数情况下可以容忍</li> <li>为了解决这个问题，Antirez发明了RedLock算法，加锁时，向过半节点发送指令，过半节点set成功，就认为加锁成功，释放锁时，需要向所有节点发送del指令，而且，还需要考虑出错重试，时钟漂移等细节问题，故性能会下降，应该根据业务谨慎考虑是否使用RedLock</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>pip3 <span class="token function">install</span> redlock-py
+</code></pre></div><div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> redlock
+
+addrs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+  <span class="token string">&quot;host&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">6379</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;db&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+  <span class="token string">&quot;host&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">6479</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;db&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+  <span class="token string">&quot;host&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">6579</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;db&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+dim <span class="token operator">=</span> redlock<span class="token punctuation">.</span>Redlock<span class="token punctuation">(</span>addrs<span class="token punctuation">)</span>
+success <span class="token operator">=</span> dim<span class="token punctuation">.</span>lock<span class="token punctuation">(</span><span class="token string">&quot;user-lock-lyj&quot;</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> success<span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'lock success'</span><span class="token punctuation">)</span>
+  dim<span class="token punctuation">.</span>unlock<span class="token punctuation">(</span><span class="token string">'user-lock-lyj'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'lock failed'</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="朝生暮死-过期策略"><a href="#朝生暮死-过期策略" class="header-anchor">#</a> 朝生暮死——过期策略</h2> <h4 id="过期的key集合"><a href="#过期的key集合" class="header-anchor">#</a> 过期的key集合</h4> <ul><li>Redis会将每个设置了过期时间的key放在一个独立的字典中，以后会定时遍历来删除到期的key，除了定时遍历外，还使用惰性策略删除过期的key，即访问此key时对过期时间进行检查，若过期就立即删除</li></ul> <h4 id="定时扫描策略"><a href="#定时扫描策略" class="header-anchor">#</a> 定时扫描策略</h4> <ul><li>Redis默认每秒进行10次过期扫描，但不会遍历字典中所有key，而是采用简单的贪心策略
+<ul><li>（1）从过期字典中随机选取20个key</li> <li>（2）删除这20个key中过期的key</li> <li>（3）若过期key的比例超过25%，则重复步骤（1）</li> <li>业务人员应该防止同时出现大量key过期，因为这会持续扫描，内存管理器需要频繁回收内存页，产生卡顿，那么，会出现大量链接因为超时而关闭，业务端会出现很多异常。</li> <li>一种解决办法是在目标过期时间上增加一天的随机时间<code>redis.expire_at(key, random.randint(86400) + expire_ts)</code></li></ul></li></ul> <h4 id="从节点的过期策略"><a href="#从节点的过期策略" class="header-anchor">#</a> 从节点的过期策略</h4> <ul><li>从节点不会进行过期扫描，主节点在key到期时，会在AOF文件里增加一条del指令，同步到所有从节点，从节点通过执行del指令来删除过期的key，可能导致主从数据的不一致，加上redlock对应的问题，可能会带来安全问题</li></ul> <h2 id="优胜劣汰-lru"><a href="#优胜劣汰-lru" class="header-anchor">#</a> 优胜劣汰——LRU</h2> <ul><li>Redis内存超出物理内存限制时，内存数据会和磁盘产生频繁交换，使Redis性能急剧下降</li> <li>生产环境中不允许Redis出现交换行为，为了限制最大使用内存，Redis提供配置参数maxmemory来限制内存超出期望大小</li> <li>当实际内存超出maxmemory时，Redis提供几种可选策略
+<ul><li>noeviction（默认）：不会继续服务写请求（del除外），读请求可以继续进行，保证不会丢失数据</li> <li>volatile-lru：尝试淘汰设置了过期时间的key，最少使用的key优先被淘汰，没有设置过期时间的key不会被淘汰</li> <li>volatile-ttl：比较key的剩余寿命ttl的值，值越小，优先淘汰</li> <li>volatile-random：淘汰过期key集合中的随机key</li> <li>allkeys-lru：全体key集合中最少被使用的优先淘汰</li> <li>allkeys-random：全体key集合中随机淘汰</li></ul></li> <li>若只拿Redis作缓存，应该使用allkeys-*策略，客户端写缓存时不必携带过期时间；若同时使用Redis的持久化功能，则使用volatile-*策略，这样可以保留没有设置过期时间的key，它们是永久的key，不会被LRU算法淘汰</li></ul> <h4 id="近似lru算法"><a href="#近似lru算法" class="header-anchor">#</a> 近似LRU算法</h4> <ul><li>Redis为每个key增加了24bit的小字段，记录最后一次被访问的时间戳</li> <li>当Redis执行写操作时，发现内存超出maxmemory，就执行一次LRU淘汰算法，随机采样出5（可设置maxmemory_samples）个key，淘汰掉最旧的key，如此反复，直到内存低于maxmemonry</li></ul> <h2 id="平波缓进-懒惰删除"><a href="#平波缓进-懒惰删除" class="header-anchor">#</a> 平波缓进——懒惰删除</h2> <ul><li>Redis内部有几个异步线程专门来处理一些耗时操作，实际上并非完全单线程</li> <li>删除指令del会释放对象的内存，大部分情况下都非常快，但当key是一个大对象时，删除操作会导致单线程卡顿</li> <li>为了解决这个问题，Redis4.0引入了unlink指令，能对删除操作进行懒处理，丢给后台线程来异步回收内存，且unlink之后，主线程将无法再访问到key，不会出现线程问题；不是所有的unlink操作都会延后处理，当key占用的内存较小，会立即回收，等价于del</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> unlink key
+OK
+</code></pre></div><ul><li>Redis提供了flushdb和flushall来清空数据库，也是慢操作，Redis4.0同样提供了异步化的指令</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&gt; flushall async
+OK
+</code></pre></div><ul><li>Redis需要每秒1次同步AOF日志到磁盘，确保信息尽量不丢失，需要调用sync函数，操作耗时，会导致主线程效率下降，所以，执行AOF sync操作的线程是另一个独立的异步线程</li> <li>Redis4.0也为以下删除点带来了异步删除机制
+<ul><li>slave-lazy-flush： 从节点接受完rdb文件后的flush操作</li> <li>lazyfree-lazy-eviction: 内存达到maxmemory时进行淘汰</li> <li>lazyfree-lazy-expire key：过期删除</li> <li>lazyfree-lazy-server-del rename：指令删除destKey</li></ul></li></ul> <h2 id="妙手仁心-优雅使用jedis"><a href="#妙手仁心-优雅使用jedis" class="header-anchor">#</a> 妙手仁心——优雅使用Jedis</h2> <ul><li>我不懂Java，想看的话自己看书去</li></ul> <h2 id="居安思危-保护redis"><a href="#居安思危-保护redis" class="header-anchor">#</a> 居安思危——保护Redis</h2> <h4 id="指令安全"><a href="#指令安全" class="header-anchor">#</a> 指令安全</h4> <ul><li>Redis有一些危险指令，一是像keys指令会卡顿Redis，二是像flushdb，flushall指令会清空redis所有数据，误操作可能带来灾难性后果</li> <li>Redis在配置文件中提供了rename-command指令用于将某些危险的指令修改成特别的名称</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>rename-command keys keysabc <span class="token comment"># 需要输入keysabc才能执行keys方法</span>
+rename-command flushall <span class="token string">&quot;&quot;</span> <span class="token comment"># rename成空串，无法再执行flushall方法</span>
+</code></pre></div><h4 id="端口安全"><a href="#端口安全" class="header-anchor">#</a> 端口安全</h4> <ul><li>Redis配置文件中应该指定监听的IP地址，避免外网直接访问</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">bind</span> <span class="token number">10.100</span>.20.13
+</code></pre></div><ul><li>可以增加密码访问限制，客户端必须使用auth指令，传入正确的密码才能访问Redis，密码控制会影响从节点复制，从节点也需要配置相应项</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 主节点</span>
+requirepass <span class="token number">123456</span>
+<span class="token comment"># 从节点</span>
+masterauth <span class="token number">123456</span>
+</code></pre></div><h4 id="lua-脚本安全"><a href="#lua-脚本安全" class="header-anchor">#</a> Lua 脚本安全</h4> <ul><li>禁止Lua脚本由用户输入的内容（UGC）生成，因为黑客有可能植入恶意代码提权</li> <li>Redis应该以普通用户身份启动，被hack后也不会丢失root权限</li></ul> <h4 id="ssl代理"><a href="#ssl代理" class="header-anchor">#</a> SSL代理</h4> <ul><li>Redis不支持SSL链接，若数据在公网上传输，可能有被窃听的风险，可以考虑使用SSL代理，在客户端与服务器连接之间以及跨机房的主从节点间使用</li> <li>Redis官方推荐spiped工具</li></ul> <h2 id="隔墙有耳-redis安全通信"><a href="#隔墙有耳-redis安全通信" class="header-anchor">#</a> 隔墙有耳——Redis安全通信</h2> <h4 id="spiped原理"><a href="#spiped原理" class="header-anchor">#</a> spiped原理</h4> <ul><li>spiped会在客户端和服务器各启动一个spiped进程，作为传输中间件</li> <li>每一个spiped进程会有一个监听端口用来接收数据，同时还会作为客户端发送数据</li> <li>spiped进程需要成对出现，相互之间需要使用相同的共享密钥来加密消息</li> <li>spiped可以同时支持多个客户端链接的数据转发工作，能通过参数限定最大连接数，但对于服务器spiped，不能同时支持多个服务器之间的转发，意味着集群环境下，需要为每一个server节点启动一个spiped进程来接收消息，会带来繁琐的运维实践</li></ul> <h4 id="spiped使用入门"><a href="#spiped使用入门" class="header-anchor">#</a> spiped使用入门</h4> <h5 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h5> <h6 id="mac安装"><a href="#mac安装" class="header-anchor">#</a> mac安装</h6> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> brew <span class="token function">install</span> spiped
+</code></pre></div><h6 id="linux安装"><a href="#linux安装" class="header-anchor">#</a> linux安装</h6> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> <span class="token function">apt-get</span> <span class="token function">install</span> spiped
+<span class="token operator">&gt;</span> yum <span class="token function">install</span> spiped
+</code></pre></div><h6 id="docker安装"><a href="#docker安装" class="header-anchor">#</a> docker安装</h6> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> docker run -d -p127.0.0.1:6379:6379 --name redis-server-6379 redis
+</code></pre></div><h5 id="生成随机密钥文件"><a href="#生成随机密钥文件" class="header-anchor">#</a> 生成随机密钥文件</h5> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&gt;</span> <span class="token function">dd</span> <span class="token assign-left variable">if</span><span class="token operator">=</span>/dev/urandom <span class="token assign-left variable">bs</span><span class="token operator">=</span><span class="token number">32</span> <span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">of</span><span class="token operator">=</span>spiped.key
+<span class="token operator">&gt;</span> <span class="token function">ls</span> -l
+<span class="token punctuation">(</span>能看到spiped.key文件<span class="token punctuation">)</span>
+</code></pre></div><h5 id="使用密钥文件启动服务器spiped进程"><a href="#使用密钥文件启动服务器spiped进程" class="header-anchor">#</a> 使用密钥文件启动服务器spiped进程</h5> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># -d 表示decrypt（对输入数据进行解密） -s 为源监听地址，-t 为转发目标地址，172那串是公网IP</span>
+<span class="token operator">&gt;</span> spiped -d -s <span class="token string">'[172.16.128.81]:6479'</span> -t <span class="token string">'[127.0.0.1]:6379'</span> -k spiped.key
+
+<span class="token comment"># 这个spiped进程监听公网IP的6479端口接收公网上的数据，将数据解密后转发到本机回环地址的6379端口，即redis-server监听的端口</span>
+<span class="token operator">&gt;</span> <span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> spiped
+<span class="token punctuation">(</span>能看到东西<span class="token punctuation">)</span>
+</code></pre></div><h5 id="使用密钥文件启动客户端spiped进程"><a href="#使用密钥文件启动客户端spiped进程" class="header-anchor">#</a> 使用密钥文件启动客户端spiped进程</h5> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># -e 表示encrypt（对输入数据进行加密）</span>
+<span class="token operator">&gt;</span> spiped -e -s <span class="token string">'[127.0.0.1]:6579'</span> -t <span class="token string">'[172.16.128.81]:6479'</span> -k spiped.key
+
+<span class="token comment"># 这个spiped进程监听本机回环地址的6579端口，将接收到的数据加密后转发到spiped的服务器进程</span>
+<span class="token operator">&gt;</span> <span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> spiped
+<span class="token punctuation">(</span>能看到两个东西<span class="token punctuation">)</span>
+</code></pre></div><h5 id="启动客户端连接"><a href="#启动客户端连接" class="header-anchor">#</a> 启动客户端连接</h5> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> redis
+<span class="token comment"># 若直接连接6379端口，会出现读超时</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c <span class="token operator">=</span> redis<span class="token punctuation">.</span>StrictRedis<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">6579</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c<span class="token punctuation">.</span>ping<span class="token punctuation">(</span><span class="token punctuation">)</span>
+PONG
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">10/20/2020, 8:55:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressBlog/techNote/engineering/Redis/Chap3.html" class="prev">
+        Chap3 集群
+      </a></span> <span class="next"><a href="/vuepressBlog/techNote/engineering/Redis/Chap5.html">
+        Chap5 源码
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="vuepress-eqn"></div><span class="vuepress-eq"></span><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/vuepressBlog/assets/js/app.d9046163.js" defer></script><script src="/vuepressBlog/assets/js/2.449f8f2c.js" defer></script><script src="/vuepressBlog/assets/js/58.e8e52be3.js" defer></script>
+  </body>
+</html>

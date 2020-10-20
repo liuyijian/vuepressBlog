@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chap8 HTTP/2 | lyj Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="我来到，我看见，我记录">
+    
+    <link rel="preload" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css" as="style"><link rel="preload" href="/vuepressBlog/assets/js/app.d9046163.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/2.449f8f2c.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/52.06c14cd4.js" as="script"><link rel="prefetch" href="/vuepressBlog/assets/js/10.5bc756b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/11.9a163bb2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/12.a8140d6d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/13.c05ca4b7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/14.73b57a43.js"><link rel="prefetch" href="/vuepressBlog/assets/js/15.b741e784.js"><link rel="prefetch" href="/vuepressBlog/assets/js/16.9f45c2d2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/17.26d9a8cc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/18.799cff0d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/19.ea6c0fd5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/20.04acbd3d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/21.603fe43e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/22.4ae699a6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/23.fa154d58.js"><link rel="prefetch" href="/vuepressBlog/assets/js/24.bd9f7b7c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/25.395a39b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/26.4df13269.js"><link rel="prefetch" href="/vuepressBlog/assets/js/27.106be358.js"><link rel="prefetch" href="/vuepressBlog/assets/js/28.e7be13aa.js"><link rel="prefetch" href="/vuepressBlog/assets/js/29.9c12446a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/3.eee8ddfd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/30.2a7c55a3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/31.79f9966c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/32.17e47231.js"><link rel="prefetch" href="/vuepressBlog/assets/js/33.9a171051.js"><link rel="prefetch" href="/vuepressBlog/assets/js/34.c5965f4e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/35.2a2f84f7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/36.ffcb560d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/37.2a643ffc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/38.390133cf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/39.99aa52c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/4.15a5030c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/40.d9e18abd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/41.b72c3c0e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/42.bfc4174b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/43.b147a9c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/44.e2870c7b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/45.b17d0a4b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/46.b865aed6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/47.deef082f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/48.ffe6ebd3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/49.8a66098e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/5.e509b048.js"><link rel="prefetch" href="/vuepressBlog/assets/js/50.e8b51f7e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/51.74edccd7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/53.3482a1b1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/54.aeb745bd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/55.9b6a8dbf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/56.771dc482.js"><link rel="prefetch" href="/vuepressBlog/assets/js/57.3ed3e1eb.js"><link rel="prefetch" href="/vuepressBlog/assets/js/58.e8e52be3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/59.756b7e8d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/6.293f4ee1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/60.e9172c5f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/7.25ada86b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/8.238e2de1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/9.b2fe1457.js">
+    <link rel="stylesheet" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressBlog/" class="home-link router-link-active"><!----> <span class="site-name">lyj Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Nginx 学习笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap1.html" class="sidebar-link">Chap1 基础和应用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap2.html" class="sidebar-link">Chap2 高性能负载均衡</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap3.html" class="sidebar-link">Chap3 流量管理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap4.html" class="sidebar-link">Chap4 大规模可扩展的内容缓存</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap5.html" class="sidebar-link">Chap5 可编程和自动化</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap6.html" class="sidebar-link">Chap6 认证</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap7.html" class="sidebar-link">Chap7 安全控制</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap8.html" aria-current="page" class="active sidebar-link">Chap8 HTTP2</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap9.html" class="sidebar-link">Chap9 成熟的媒体流</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap10.html" class="sidebar-link">Chap10 云部署</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap11.html" class="sidebar-link">Chap11 容器和微服务</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap12.html" class="sidebar-link">Chap12 高可用部署模式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap13.html" class="sidebar-link">Chap13 进阶活动监控</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap14.html" class="sidebar-link">Chap14 调试、错误定位、请求追踪</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap15.html" class="sidebar-link">Chap15 性能调优</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap16.html" class="sidebar-link">Chap16 实用操作建议和总结</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="chap8-http-2"><a href="#chap8-http-2" class="header-anchor">#</a> Chap8 HTTP/2</h1> <h4 id="简介"><a href="#简介" class="header-anchor">#</a> 简介</h4> <ul><li>HTTP/2 是一个HTTP协议，主要工作在于传输层
+<ul><li>使用单个TCP连接来多路传输请求和响应</li> <li>HTTP header中使用了compression字段，通过压缩提效</li> <li>实现了处理请求的优先级</li> <li>允许服务器推送</li></ul></li></ul> <h4 id="基础配置"><a href="#基础配置" class="header-anchor">#</a> 基础配置</h4> <ul><li>某些客户端只支持加密的HTTP/2 协议连接，使用Chrome调试工具来判断一个网站是否开启HTTP/2传输</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span> http2 default_server<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate</span> <span class="token keyword">server</span><span class="token punctuation">.</span>crt<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate_key</span> <span class="token keyword">server</span><span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="grpc"><a href="#grpc" class="header-anchor">#</a> gRPC</h4> <ul><li>在Nginx中，gRPC和restful能共存</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span> <span class="token number">80</span> http2<span class="token punctuation">;</span>
+  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    grpc_pass grpc<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">.</span>local<span class="token punctuation">:</span><span class="token number">50051</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+	<span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span> http2 default_server<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate</span> <span class="token keyword">server</span><span class="token punctuation">.</span>crt<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate_key</span> <span class="token keyword">server</span><span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    grpc_pass grpcs<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">.</span>local<span class="token punctuation">:</span><span class="token number">50051</span><span class="token punctuation">;</span> <span class="token comment"># nginx到gRPC服务的通信是加密的HTTP/2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">upstream</span> grpcservers <span class="token punctuation">{</span>
+	<span class="token keyword">server</span> backend1<span class="token punctuation">.</span>local<span class="token punctuation">:</span><span class="token number">50051</span><span class="token punctuation">;</span> <span class="token comment"># 分流</span>
+  <span class="token keyword">server</span> backend2<span class="token punctuation">.</span>local<span class="token punctuation">:</span><span class="token number">50051</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span> http2 default_server<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate</span> <span class="token keyword">server</span><span class="token punctuation">.</span>crt<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate_key</span> <span class="token keyword">server</span><span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    grpc_pass grpc<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>grpcservers<span class="token punctuation">;</span> <span class="token comment"># 与http唯一不同的地方在于事grpc_pass</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="http-2-server-push"><a href="#http-2-server-push" class="header-anchor">#</a> HTTP/2 Server Push</h4> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+  <span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span> http2 default_server<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate</span> <span class="token keyword">server</span><span class="token punctuation">.</span>crt<span class="token punctuation">;</span>
+  <span class="token keyword">ssl_certificate_key</span> <span class="token keyword">server</span><span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+  <span class="token keyword">root</span> <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+  
+  <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span>demo<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+    http2_push <span class="token operator">/</span>style<span class="token punctuation">.</span>css<span class="token punctuation">;</span>
+    http2_push <span class="token operator">/</span>image1<span class="token punctuation">.</span>jpg<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>NGINX can also automatically push resources to clients if proxied applications include an HTTP response header named Link. This header is able to instruct NGINX to preload the resources specified. To enable this feature, add http2_push_preload on; to the NGINX configuration(一段我不懂的鸟语)</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">10/20/2020, 8:55:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressBlog/techNote/engineering/Nginx/Chap7.html" class="prev">
+        Chap7 安全控制
+      </a></span> <span class="next"><a href="/vuepressBlog/techNote/engineering/Nginx/Chap9.html">
+        Chap9 成熟的媒体流
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="vuepress-eqn"></div><span class="vuepress-eq"></span><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/vuepressBlog/assets/js/app.d9046163.js" defer></script><script src="/vuepressBlog/assets/js/2.449f8f2c.js" defer></script><script src="/vuepressBlog/assets/js/52.06c14cd4.js" defer></script>
+  </body>
+</html>

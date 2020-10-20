@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chap2 高性能负载均衡 | lyj Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="我来到，我看见，我记录">
+    
+    <link rel="preload" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css" as="style"><link rel="preload" href="/vuepressBlog/assets/js/app.d9046163.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/2.449f8f2c.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/46.b865aed6.js" as="script"><link rel="prefetch" href="/vuepressBlog/assets/js/10.5bc756b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/11.9a163bb2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/12.a8140d6d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/13.c05ca4b7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/14.73b57a43.js"><link rel="prefetch" href="/vuepressBlog/assets/js/15.b741e784.js"><link rel="prefetch" href="/vuepressBlog/assets/js/16.9f45c2d2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/17.26d9a8cc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/18.799cff0d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/19.ea6c0fd5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/20.04acbd3d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/21.603fe43e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/22.4ae699a6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/23.fa154d58.js"><link rel="prefetch" href="/vuepressBlog/assets/js/24.bd9f7b7c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/25.395a39b8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/26.4df13269.js"><link rel="prefetch" href="/vuepressBlog/assets/js/27.106be358.js"><link rel="prefetch" href="/vuepressBlog/assets/js/28.e7be13aa.js"><link rel="prefetch" href="/vuepressBlog/assets/js/29.9c12446a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/3.eee8ddfd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/30.2a7c55a3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/31.79f9966c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/32.17e47231.js"><link rel="prefetch" href="/vuepressBlog/assets/js/33.9a171051.js"><link rel="prefetch" href="/vuepressBlog/assets/js/34.c5965f4e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/35.2a2f84f7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/36.ffcb560d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/37.2a643ffc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/38.390133cf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/39.99aa52c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/4.15a5030c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/40.d9e18abd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/41.b72c3c0e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/42.bfc4174b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/43.b147a9c6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/44.e2870c7b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/45.b17d0a4b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/47.deef082f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/48.ffe6ebd3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/49.8a66098e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/5.e509b048.js"><link rel="prefetch" href="/vuepressBlog/assets/js/50.e8b51f7e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/51.74edccd7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/52.06c14cd4.js"><link rel="prefetch" href="/vuepressBlog/assets/js/53.3482a1b1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/54.aeb745bd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/55.9b6a8dbf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/56.771dc482.js"><link rel="prefetch" href="/vuepressBlog/assets/js/57.3ed3e1eb.js"><link rel="prefetch" href="/vuepressBlog/assets/js/58.e8e52be3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/59.756b7e8d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/6.293f4ee1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/60.e9172c5f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/7.25ada86b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/8.238e2de1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/9.b2fe1457.js">
+    <link rel="stylesheet" href="/vuepressBlog/assets/css/0.styles.7a5ab8a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressBlog/" class="home-link router-link-active"><!----> <span class="site-name">lyj Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/basic/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link router-link-active">
+  Nginx
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/investNote/" class="nav-link">
+  投资心得
+</a></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div><div class="nav-item"><a href="https://www.github.com/liuyijian" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  代码仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Nginx 学习笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap1.html" class="sidebar-link">Chap1 基础和应用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap2.html" aria-current="page" class="active sidebar-link">Chap2 高性能负载均衡</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap3.html" class="sidebar-link">Chap3 流量管理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap4.html" class="sidebar-link">Chap4 大规模可扩展的内容缓存</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap5.html" class="sidebar-link">Chap5 可编程和自动化</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap6.html" class="sidebar-link">Chap6 认证</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap7.html" class="sidebar-link">Chap7 安全控制</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap8.html" class="sidebar-link">Chap8 HTTP2</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap9.html" class="sidebar-link">Chap9 成熟的媒体流</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap10.html" class="sidebar-link">Chap10 云部署</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap11.html" class="sidebar-link">Chap11 容器和微服务</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap12.html" class="sidebar-link">Chap12 高可用部署模式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap13.html" class="sidebar-link">Chap13 进阶活动监控</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap14.html" class="sidebar-link">Chap14 调试、错误定位、请求追踪</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap15.html" class="sidebar-link">Chap15 性能调优</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Nginx/Chap16.html" class="sidebar-link">Chap16 实用操作建议和总结</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="chap2-高性能负载均衡"><a href="#chap2-高性能负载均衡" class="header-anchor">#</a> Chap2 高性能负载均衡</h1> <h4 id="简介"><a href="#简介" class="header-anchor">#</a> 简介</h4> <ul><li>用户体验需要系统能即时响应，故出现了水平扩展的软件体系结构，就是请求分发到多个相同功能的服务器程序去处理</li> <li>负载均衡策略是必要的点，Nginx能处理HTTP、TCP、UDP的负载均衡，以下会介绍</li> <li>现代web架构大多部署了无状态的应用层（如restful），但事实是，很多还使用session技术来完成web交互的身份识别，当session存储在单一服务器上时，要确保后续的用户请求都由此服务器提供服务，还要确保交互期间此服务器不能掉线。</li> <li>应用挂掉可能的原因有很多：网络传输中断，服务器错误，应用程序错误等等。故代理（负载均衡器）需要检查上游服务器健康状态， Nginx提供被动和主动检查两种方式，后者仅在Nginx Plus商业版中提供，被动检查带给上游服务器的压力相对较少，主动检查能更快地发现错误</li></ul> <h4 id="http-负载均衡"><a href="#http-负载均衡" class="header-anchor">#</a> HTTP 负载均衡</h4> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
+	<span class="token keyword">server</span> <span class="token number">10.10</span><span class="token number">.12</span><span class="token number">.45</span><span class="token punctuation">:</span><span class="token number">80</span>  weight<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">server</span> app<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">80</span> weight<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+	<span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+		<span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="tcp负载均衡"><a href="#tcp负载均衡" class="header-anchor">#</a> TCP负载均衡</h4> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token comment"># 新建文件夹 stream.conf.d， 并打开nginx.conf文件中的stream block，include这个文件夹内所有内容</span>
+stream <span class="token punctuation">{</span>
+  <span class="token keyword">upstream</span> mysql_read <span class="token punctuation">{</span>
+    <span class="token keyword">server</span> read1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">3306</span> weight<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token keyword">server</span> read2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">3306</span><span class="token punctuation">;</span>
+    <span class="token keyword">server</span> <span class="token number">10.10</span><span class="token number">.12</span><span class="token number">.34</span><span class="token punctuation">:</span><span class="token number">3306</span> backup<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span> <span class="token number">3306</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_pass</span> mysql_read<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="udp负载均衡"><a href="#udp负载均衡" class="header-anchor">#</a> UDP负载均衡</h4> <div class="language-nginx extra-class"><pre class="language-nginx"><code>stream <span class="token punctuation">{</span>
+  <span class="token keyword">upstream</span> ntp <span class="token punctuation">{</span>
+    <span class="token keyword">server</span> ntp1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">123</span> weight<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">server</span> ntp2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">123</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span> <span class="token number">123</span> udp<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_pass</span> ntp<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>UDP中的<code>proxy_response</code>配置：指定在<code>proxy_timeout</code>时间内从上游服务器返回的数据包个数，默认是无限制</li> <li><code>reuseport</code>参数可以让Nginx为每个工作进程新建独立的监听socket，能让内核在工作进程间分发到来的连接，当客户端和服务器需要来回发送多个packet的时候</li></ul> <h4 id="负载均衡策略"><a href="#负载均衡策略" class="header-anchor">#</a> 负载均衡策略</h4> <ul><li><p>Nginx 提供的负载均衡策略如下：</p> <ul><li><p><code>round robin</code>：默认策略，轮询server列表，会考虑weight</p></li> <li><p><code>least_conn</code>：最少连接策略，同样考虑weight，优先考虑不同服务器已经拥有的连接数</p></li> <li><p><code>least_time</code>:  最短时间策略，尽在Nginx Plus提供，倾向于分发到平均应答时间最短的服务器</p></li> <li><p><code>hash</code>:  通用哈希策略，根据请求内容和运行时来哈希到不同服务器，当服务器上线或下线时会导致哈希过的请求重新分配，可以使用额外的参数<code>consistent</code>来减小重分配的负面影响</p></li> <li><p><code>random</code>: 随机策略，会考虑weight</p></li> <li><p><code>ip_hash</code>: 此方法仅对HTTP有效，使用客户端IP作为哈希输入，适用于session类型的服务器连接，会考虑weight</p></li></ul></li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token comment"># 例子</span>
+<span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
+	least_conn<span class="token punctuation">;</span>
+  <span class="token keyword">server</span> backend<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+  <span class="token keyword">server</span> backend1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="sticky-cookie"><a href="#sticky-cookie" class="header-anchor">#</a> Sticky Cookie</h4> <ul><li>仅Nginx Plus提供，用于绑定上游服务器和下游客户端</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
+  <span class="token keyword">server</span> backend1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+  <span class="token keyword">server</span> backend2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+  sticky cookie
+    		 affinity <span class="token comment"># cookie的名字</span>
+    		 <span class="token keyword">expires</span><span class="token operator">=</span><span class="token number">1</span>h <span class="token comment"># cookie的过期时间</span>
+    		 domain<span class="token operator">=</span> <span class="token punctuation">.</span>example<span class="token punctuation">.</span>com <span class="token comment"># 为这个网站设置</span>
+    		 httponly
+         secure <span class="token comment"># 只能通过https传输</span>
+         path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> <span class="token comment"># 对于所有路径均有效</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="sticky-learn"><a href="#sticky-learn" class="header-anchor">#</a> Sticky Learn</h4> <ul><li>仅Nginx Plus提供，用于绑定上游服务器和下游客户端，使用现有的cookie</li> <li>当应用创造了他们的session状态的cookie，Nginx Plus会在请求和应答中发现它们并跟踪</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
+  <span class="token keyword">server</span> backend1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">8080</span><span class="token punctuation">;</span>
+  <span class="token keyword">server</span> backend2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">8081</span><span class="token punctuation">;</span>
+  
+  sticky learn
+    		 create<span class="token operator">=</span><span class="token variable">$upstream_cookie_cookiename</span> <span class="token comment"># 在</span>
+    		 lookup<span class="token operator">=</span><span class="token variable">$cookie_cookiename</span>
+    		 zone<span class="token operator">=</span>client_sessions<span class="token punctuation">:</span><span class="token number">2</span>m<span class="token punctuation">;</span> <span class="token comment"># 在2MB的内存中存储session，约能存下16000个</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="sticky-routing"><a href="#sticky-routing" class="header-anchor">#</a> Sticky Routing</h4> <ul><li>仅Nginx Plus提供，对于持久化的session如何分发到上游服务器，需要细粒度的控制</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token comment"># 从cookie中抽取jsessionid</span>
+<span class="token keyword">map</span> <span class="token variable">$cookie_jsessionid</span> <span class="token variable">$route_cookie</span> <span class="token punctuation">{</span>
+  <span class="token operator">~</span><span class="token punctuation">.</span><span class="token operator">+</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">?</span>P<span class="token operator">&lt;</span>route<span class="token operator">&gt;</span>\w<span class="token operator">+</span><span class="token punctuation">)</span>$ <span class="token variable">$route</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 观察请求的URI去寻找一个叫做jsessionid的参数</span>
+<span class="token keyword">map</span> <span class="token variable">$request_uri</span> <span class="token variable">$route_uri</span> <span class="token punctuation">{</span>
+  <span class="token operator">~</span>jsessionid<span class="token operator">=</span><span class="token punctuation">.</span><span class="token operator">+</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">?</span>P<span class="token operator">&lt;</span>route<span class="token operator">&gt;</span>\w<span class="token operator">+</span><span class="token punctuation">)</span>$ <span class="token variable">$route</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
+  <span class="token keyword">server</span> backend1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com route<span class="token operator">=</span>a<span class="token punctuation">;</span> <span class="token comment"># 若jsessionid的cookie被使用，导引到a路由</span>
+  <span class="token keyword">server</span> backend2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com route<span class="token operator">=</span>b<span class="token punctuation">;</span> <span class="token comment"># 若URI参数使用了，导引到b路由</span>
+  sticky route <span class="token variable">$route_cookie</span> <span class="token variable">$route_uri</span><span class="token punctuation">;</span> <span class="token comment"># 可以传递任意个参数（当前为两个）</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="连接中断"><a href="#连接中断" class="header-anchor">#</a> 连接中断</h4> <ul><li>仅Nginx Plus提供，关于如何优雅地下线尚存session的服务器</li> <li>当设置了drain参数，Nginx Plus停止发送新的session给服务器，但允许已经建立好session的连接前往服务</li> <li>draining的过程就是安静地等待服务器的session自然过期，然后再将它移出</li></ul> <p><code>curl -X POST -d '{&quot;drain&quot;:true}' 'http://nginx.local/api/3/http/upstreams/backend/servers/0'</code></p> <h4 id="被动健康检查"><a href="#被动健康检查" class="header-anchor">#</a> 被动健康检查</h4> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
+  <span class="token keyword">server</span> backend1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">1234</span> max_fails<span class="token operator">=</span><span class="token number">3</span> fail_timeout<span class="token operator">=</span><span class="token number">3</span>s<span class="token punctuation">;</span>
+  <span class="token keyword">server</span> backend2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">1234</span> max_fails<span class="token operator">=</span><span class="token number">3</span> fail_timeout<span class="token operator">=</span><span class="token number">3</span>s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>定义了超时3s就算一次fail，fail三次服务器就被Nginx视为不可用</li> <li>在stream 模块中或者http模块中皆可使用</li></ul> <h4 id="主动健康检查"><a href="#主动健康检查" class="header-anchor">#</a> 主动健康检查</h4> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">http</span> <span class="token punctuation">{</span>
+  <span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+      <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
+      health_check interval<span class="token operator">=</span><span class="token number">2</span>s
+      		fails<span class="token operator">=</span><span class="token number">2</span>
+        	passes<span class="token operator">=</span><span class="token number">5</span>
+        	uri<span class="token operator">=</span><span class="token operator">/</span>
+        	match<span class="token operator">=</span>welcome<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  match welcome <span class="token punctuation">{</span>
+    status <span class="token number">200</span><span class="token punctuation">;</span>
+    header Content<span class="token operator">-</span>Type <span class="token operator">=</span> text<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    body <span class="token operator">~</span> <span class="token string">&quot;Welcome to nginx!&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>通过每两秒向上游服务器的URI “/” 发送http请求，上游服务器必须能通过连续的五个检查请求才被视为健康，若连续不通过两次，则被视为不健康</li> <li>上游服务器的应答必须与预设的match block中的内容相匹配，http 模块中的match block定义了status，header，body三个参数，而被动检查没有应答比对判断的功能</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token comment"># TCP的健康检查例子</span>
+stream <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword">server</span> <span class="token punctuation">{</span>
+  	<span class="token keyword">listen</span> <span class="token number">1234</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_pass</span> stream_backend<span class="token punctuation">;</span>
+    health_check interval<span class="token operator">=</span><span class="token number">10</span> passes<span class="token operator">=</span><span class="token number">2</span> fails<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+    health_check_timeout <span class="token number">5</span>s<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>stream servers 的 match block仅有两个参数，send和expect，对应发送和接收数据包的确切值或者正则表达式</li></ul> <h4 id="慢启动"><a href="#慢启动" class="header-anchor">#</a> 慢启动</h4> <ul><li>在server命令中使用 <code>slow_start</code>参数来在一段指定的时间内逐步增加连接到新进服务器的连接个数</li> <li>slow_start 参数的存在，允许应用服务器先连接好数据库，准备好缓存，再面对大压力，避免服务器被健康检查干掉又加回来反反复复</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">upstream</span> <span class="token punctuation">{</span>
+	zone backend <span class="token number">64</span>k<span class="token punctuation">;</span>
+	<span class="token keyword">server</span> server1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com slow_start<span class="token operator">=</span><span class="token number">20</span>s<span class="token punctuation">;</span>
+	<span class="token keyword">server</span> server2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com slow_start<span class="token operator">=</span><span class="token number">15</span>s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">10/20/2020, 8:55:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressBlog/techNote/engineering/Nginx/Chap1.html" class="prev">
+        Chap1 基础和应用
+      </a></span> <span class="next"><a href="/vuepressBlog/techNote/engineering/Nginx/Chap3.html">
+        Chap3 流量管理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="vuepress-eqn"></div><span class="vuepress-eq"></span><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/vuepressBlog/assets/js/app.d9046163.js" defer></script><script src="/vuepressBlog/assets/js/2.449f8f2c.js" defer></script><script src="/vuepressBlog/assets/js/46.b865aed6.js" defer></script>
+  </body>
+</html>
