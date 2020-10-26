@@ -46,6 +46,14 @@ module.exports = {
                   {
                     text: 'Nginx',
                     link: '/techNote/engineering/Nginx/'
+                  },
+                  {
+                    text: 'FFmpeg',
+                    link: '/techNote/engineering/FFmpeg/'
+                  },
+                  {
+                    text: 'Python',
+                    link: '/techNote/engineering/Python/'
                   }
                 ]
               }
@@ -60,11 +68,6 @@ module.exports = {
             text: '资源聚合',
             ariaLabel: 'Resource',
             link: '/resource/'
-          },
-          {
-            text: '代码仓库',
-            ariaLabel: 'Github',
-            link: 'https://www.github.com/liuyijian'
           }
         ],
         sidebar: {
@@ -136,6 +139,27 @@ module.exports = {
               {title: 'Chap14 调试、错误定位、请求追踪', path:'Chap14'},
               {title: 'Chap15 性能调优', path:'Chap15'},
               {title: 'Chap16 实用操作建议和总结', path:'Chap16'},
+            ]
+          }],
+          "/techNote/engineering/FFmpeg/":[{
+            title: 'FFmpeg 学习笔记',
+            collapsable: false,
+            children: [
+              {title: 'Chap1 FFmpeg简介', path: 'Chap1'},
+              {title: 'Chap2 FFmpeg工具使用基础 ', path: 'Chap2'},
+              {title: 'Chap3 FFmpeg转封装', path: 'Chap3'},
+              {title: 'Chap4 FFmpeg转码', path: 'Chap4'},
+              {title: 'Chap5 FFmpeg流媒体', path: 'Chap5'},
+              {title: 'Chap6 FFmpeg滤镜使用', path: 'Chap6'},
+              {title: 'Chap7 FFmpeg采集设备', path: 'Chap7'},
+            ]
+          }],
+          "/techNote/engineering/Python/":[{
+            title: 'Python 学习笔记',
+            collapsable: false,
+            children: [
+              {title: 'Python环境配置', path: 'environment'},
+              {title: 'Python标准库 ', path: 'stl'},
             ]
           }],
           "/investNote/": [{
