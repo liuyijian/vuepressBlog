@@ -1,5 +1,10 @@
 # 电子书籍
 
+### 免费电子书资源
+
+* [电子书下载网站大全](https://tyi45di4ct.jiandaoyun.com/dash/5e7d915c6c56d8000674a8b8)
+* [俄罗斯神站](http://gen.lib.rus.ec/)
+
 ### 技术类
 
 ##### 人工智能
@@ -56,13 +61,17 @@
 
 [《Kali Linux高级渗透测试（第2版）》](https://pan.baidu.com/s/1LAp-xHIUN7EVvhtkJVTE9w)
 
-### 生活类
+##### 道法
+
+[《软技能：代码之外的生存指南》](https://pan.baidu.com/s/11d3CPbcWQqb36Dm3VrSYkg)
 
 [KK三部曲：《失控》《科技想要什么》《必然》](https://pan.baidu.com/s/1XuC9CGDuU2ilREdtFRjjrQ)
 
-[《大生意人》](https://pan.baidu.com/s/1u3axCUHzwScyiJHN6lySYg)
 
-[《软技能：代码之外的生存指南》](https://pan.baidu.com/s/11d3CPbcWQqb36Dm3VrSYkg)
+
+### 小说类
+
+[《大生意人》](https://pan.baidu.com/s/1u3axCUHzwScyiJHN6lySYg)
 
 [《霍乱时期的爱情》](https://pan.baidu.com/s/1uOx4xTzLFDMW8ll6v4RekQ)
 

@@ -14,14 +14,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@maginapp/vuepress-plugin-katex": "^1.0.7",
+    "@maginapp/vuepress-plugin-katex": "^1.0.11",
     "@vuepress/plugin-back-to-top": "^1.7.1",
     "vue-router": "3.4.5",
-    "vuepress": "^1.7.1",
+    "vuepress": "^1.8.2",
     "vuepress-plugin-helper-live2d": "^1.0.2",
     "vuepress-plugin-mathjax": "^1.2.8"
   },
   "dependencies": {
+    "browserslist": "^4.16.3",
+    "caniuse-lite": "^1.0.30001208",
     "markdown-it-katex": "^2.0.3",
     "vue-router": "3.4.5"
   }

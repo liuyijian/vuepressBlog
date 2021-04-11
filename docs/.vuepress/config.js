@@ -54,6 +54,10 @@ module.exports = {
                   {
                     text: 'Python',
                     link: '/techNote/engineering/Python/'
+                  },
+                  {
+                    text: 'JavaScript',
+                    link: '/techNote/engineering/JavaScript'
                   }
                 ]
               }
@@ -62,7 +66,20 @@ module.exports = {
           {
             text: '投资心得',
             ariaLabel: 'InvestNote',
-            link: '/investNote/'
+            items:[
+              {
+                text: '经济',
+                link: '/investNote/economic/'
+              },
+              {
+                text: '缠论',
+                link: '/investNote/chan/'
+              },
+              {
+                text: '期权',
+                link: '/investNote/options/'
+              },
+            ]
           },
           {
             text: '资源聚合',
@@ -154,6 +171,41 @@ module.exports = {
               {title: 'Chap7 FFmpeg采集设备', path: 'Chap7'},
             ]
           }],
+          "/techNote/engineering/JavaScript/":[{
+            title: 'JavaScript 学习笔记',
+            collapsable: false,
+            children: [
+              {title: 'Chap1 什么是JavaScript', path: 'Chap1'},
+              {title: 'Chap2 HTML中的JavaScript ', path: 'Chap2'},
+              {title: 'Chap3 语言基础', path: 'Chap3'},
+              {title: 'Chap4 变量、作用域与内存', path: 'Chap4'},
+              {title: 'Chap5 基本引用类型', path: 'Chap5'},
+              {title: 'Chap6 集合引用类型', path: 'Chap6'},
+              {title: 'Chap7 迭代器与生成器', path: 'Chap7'},
+              {title: 'Chap8 对象、类与面向对象编程', path: 'Chap8'},
+              {title: 'Chap9 代理与反射', path: 'Chap9'},
+              {title: 'Chap10 函数', path: 'Chap10'},
+              {title: 'Chap11 期约与异步函数', path: 'Chap11'},
+              {title: 'Chap12 BOM', path: 'Chap12'},
+              {title: 'Chap13 客户端检测', path: 'Chap13'},
+              {title: 'Chap14 DOM', path: 'Chap14'},
+              {title: 'Chap15 DOM扩展', path: 'Chap15'},
+              {title: 'Chap16 DOM2 和 DOM3', path: 'Chap16'},
+              {title: 'Chap17 事件', path: 'Chap17'},
+              {title: 'Chap18 动画与Canvas图形', path: 'Chap18'},
+              {title: 'Chap19 表单脚本', path: 'Chap19'},
+              {title: 'Chap20 JavaScript API', path: 'Chap20'},
+              {title: 'Chap21 错误处理与调试', path: 'Chap21'},
+              {title: 'Chap22 处理XML', path: 'Chap22'},
+              {title: 'Chap23 JSON', path: 'Chap23'},
+              {title: 'Chap24 网络请求与远程资源', path: 'Chap24'},
+              {title: 'Chap25 客户端存储', path: 'Chap25'},
+              {title: 'Chap26 模块', path: 'Chap26'},
+              {title: 'Chap27 工作者线程', path: 'Chap27'},
+              {title: 'Chap28 最佳实践', path: 'Chap28'},
+              {title: 'Chap29 附录', path: 'Chap29'},
+            ]
+          }],
           "/techNote/engineering/Python/":[{
             title: 'Python 学习笔记',
             collapsable: false,
@@ -162,11 +214,24 @@ module.exports = {
               {title: 'Python标准库 ', path: 'stl'},
             ]
           }],
-          "/investNote/": [{
-            title: '投资心得',
+          "/investNote/economic/": [{
+            title: '经济学',
             collapsable: false,
             children: [
-              ''
+              {title: '《结构性改革》读书笔记', path:'structural_reform'}
+            ]
+          }],
+          "/investNote/chan/": [{
+            title: '缠论',
+            collapsable: false,
+            children: [
+            ]
+          }],
+          "/investNote/options/": [{
+            title: '期权',
+            collapsable: false,
+            children: [
+              {title: '《三小时快学期权》读书笔记', path:'three_hours_to_learn_options'}
             ]
           }],
           "/resource/": [{

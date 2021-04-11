@@ -2,28 +2,52 @@
 
 
 
-## 项目虚拟环境配置
+#### 1、安装Anaconda或Miniconda
 
-#### 基本用法
+##### 下载地址
 
-* 安装好pipenv:``pip3 install pipenv``
+* Anaconda(附带常用数据分析库，约500MB)：https://www.anaconda.com/products/individual
+* Miniconda(精简版，约50MB)：https://docs.conda.io/en/latest/miniconda.html
 
-* 新建项目目录:``mkdir project`` ``cd project``
+#### 常用命令
 
-* 安装虚拟环境(先确保本地已经安装了python)(如果项目中有requirements.txt文件，pipenv会在安装的时候自动导入) ：``export PIPENV_VENV_IN_PROJECT=1`` ``pipenv --python 3.7``
+* 进入conda环境（看到base则证明成功）：``conda``
+* 展示已安装的包：``conda list``
+* 安装一个新的包：``conda install [package]``
+* 搜索一个包： ``conda search [package]``
 
-* 换源以提高包下载速度：将pipfile文件的url属性的值替换为``url = "https://pypi.tuna.tsinghua.edu.cn/simple/"``
+* 添加清华源和conda-forge源
 
-* 激活虚拟环境 ``pipenv shell``，退出虚拟环境``exit``
+  * ``conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/``
 
-* 安装第三方包(若之前没安装)(先备好``requirements.txt``文件在项目目录下)：``pipenv install -r requirements.txt``
+  * ``conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/``
+  * ``conda config --add channels conda-forge``
 
-* 查看已安装包的依赖关系 ``pipenv graph``
+  * ``conda config --set show_channel_urls yes``
 
-* 导出已安装包的列表 `` pipenv lock -r  > requirements_out.txt``
+* 若报错 ``Solving environment: failed with initial frozen solve. Retrying with flexible solve``
+  * ``conda config --set channel_priority flexible``
 
-* 仅导出开发使用的包 `` pipenv lock -r --dev  > requirements_out_dev.txt``
+* 若报错 ``JSON.decode error``
+  * ``conda clean –i``
 
-#### 参考资料
+* 虚拟环境
+  * 新建环境：``conda create -n webcrawler python=3.8``
+  * 进入环境：``conda activate webcrawler``
+  * 退出环境：``conda deactivate``
 
-* [pipenv官方文档](https://pipenv.pypa.io/en/latest/)
+* 配置文件导入导出
+  * 通过配置文件安装：``conda env from [xxx.yml]``
+  * 导出当前配置：``conda env export > [xxx.yml]``
+
+#### 2、安装Jupyterlab3交互式代码编辑器
+
+* 安装jupyterlab3：``conda install jupyterlab=3``
+
+* 安装汉化包：
+  * ``pip install jupyterlab_language_pack_zh_CN-0.0.1.dev0-py2.py3-none-any.whl ``
+  * ``jupyter-lab``
+  * 进入网页环境，菜单settings-language中切换成中文
+* 安装代码自动提示插件
+  * 网页环境的extensions中搜索kite并安装，需要预先配置nodejs环境
+
