@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Asyncio | lyj Blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="我来到，我看见，我记录">
+    
+    <link rel="preload" href="/vuepressBlog/assets/css/0.styles.bc106160.css" as="style"><link rel="preload" href="/vuepressBlog/assets/js/app.d3f3e682.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/2.401ce0c2.js" as="script"><link rel="preload" href="/vuepressBlog/assets/js/102.0eba577a.js" as="script"><link rel="prefetch" href="/vuepressBlog/assets/js/10.6d13ecba.js"><link rel="prefetch" href="/vuepressBlog/assets/js/100.4e6383e8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/101.03e713c8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/103.db880a99.js"><link rel="prefetch" href="/vuepressBlog/assets/js/104.fc7d4108.js"><link rel="prefetch" href="/vuepressBlog/assets/js/105.97da3c2f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/106.56c13d4a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/107.49590f50.js"><link rel="prefetch" href="/vuepressBlog/assets/js/108.89723d2e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/109.d4859ac2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/11.e25a5425.js"><link rel="prefetch" href="/vuepressBlog/assets/js/110.36c035ab.js"><link rel="prefetch" href="/vuepressBlog/assets/js/111.2e9fdf6e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/112.72ca265c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/113.5245531a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/12.59432e93.js"><link rel="prefetch" href="/vuepressBlog/assets/js/13.31bd9a84.js"><link rel="prefetch" href="/vuepressBlog/assets/js/14.0b06810f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/15.e0a7d109.js"><link rel="prefetch" href="/vuepressBlog/assets/js/16.d8d547ec.js"><link rel="prefetch" href="/vuepressBlog/assets/js/17.f801f702.js"><link rel="prefetch" href="/vuepressBlog/assets/js/18.ced7fc49.js"><link rel="prefetch" href="/vuepressBlog/assets/js/19.6d9a078f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/20.d6705a8a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/21.6c7be3a0.js"><link rel="prefetch" href="/vuepressBlog/assets/js/22.2f97e4c4.js"><link rel="prefetch" href="/vuepressBlog/assets/js/23.dc5ad835.js"><link rel="prefetch" href="/vuepressBlog/assets/js/24.b5ad9a7c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/25.b8b7cdcd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/26.89b3d652.js"><link rel="prefetch" href="/vuepressBlog/assets/js/27.a1f119d7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/28.aba4012d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/29.8b3846f6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/3.1246f922.js"><link rel="prefetch" href="/vuepressBlog/assets/js/30.4c20cef3.js"><link rel="prefetch" href="/vuepressBlog/assets/js/31.fb7a49f9.js"><link rel="prefetch" href="/vuepressBlog/assets/js/32.19bd838c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/33.cf5d7662.js"><link rel="prefetch" href="/vuepressBlog/assets/js/34.4a037a04.js"><link rel="prefetch" href="/vuepressBlog/assets/js/35.0f2a619e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/36.d1aa891f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/37.c3368cc5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/38.096e1d14.js"><link rel="prefetch" href="/vuepressBlog/assets/js/39.48851aa2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/4.6fcabf8c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/40.e8c8b8d0.js"><link rel="prefetch" href="/vuepressBlog/assets/js/41.1d15d837.js"><link rel="prefetch" href="/vuepressBlog/assets/js/42.58ae50c7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/43.97bc10ed.js"><link rel="prefetch" href="/vuepressBlog/assets/js/44.08ef8f1e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/45.850be670.js"><link rel="prefetch" href="/vuepressBlog/assets/js/46.1bd8d1d5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/47.a5b0b703.js"><link rel="prefetch" href="/vuepressBlog/assets/js/48.aebdf808.js"><link rel="prefetch" href="/vuepressBlog/assets/js/49.392d9558.js"><link rel="prefetch" href="/vuepressBlog/assets/js/5.1d5afe99.js"><link rel="prefetch" href="/vuepressBlog/assets/js/50.b64d3497.js"><link rel="prefetch" href="/vuepressBlog/assets/js/51.fb6479f8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/52.4cce2038.js"><link rel="prefetch" href="/vuepressBlog/assets/js/53.036af50c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/54.7e2899cb.js"><link rel="prefetch" href="/vuepressBlog/assets/js/55.86a3acaf.js"><link rel="prefetch" href="/vuepressBlog/assets/js/56.ba09f9ed.js"><link rel="prefetch" href="/vuepressBlog/assets/js/57.c56dc245.js"><link rel="prefetch" href="/vuepressBlog/assets/js/58.af7c9341.js"><link rel="prefetch" href="/vuepressBlog/assets/js/59.5d0258e6.js"><link rel="prefetch" href="/vuepressBlog/assets/js/6.b0f500a7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/60.b69e844f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/61.56f0e9b7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/62.791cbb9c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/63.ac8429be.js"><link rel="prefetch" href="/vuepressBlog/assets/js/64.becde0ad.js"><link rel="prefetch" href="/vuepressBlog/assets/js/65.f451705a.js"><link rel="prefetch" href="/vuepressBlog/assets/js/66.73851415.js"><link rel="prefetch" href="/vuepressBlog/assets/js/67.ef671427.js"><link rel="prefetch" href="/vuepressBlog/assets/js/68.d4d80e79.js"><link rel="prefetch" href="/vuepressBlog/assets/js/69.b51017aa.js"><link rel="prefetch" href="/vuepressBlog/assets/js/7.0ebb7ad8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/70.6644669b.js"><link rel="prefetch" href="/vuepressBlog/assets/js/71.1f39295e.js"><link rel="prefetch" href="/vuepressBlog/assets/js/72.cda3ea39.js"><link rel="prefetch" href="/vuepressBlog/assets/js/73.b18cb6ae.js"><link rel="prefetch" href="/vuepressBlog/assets/js/74.b70983bc.js"><link rel="prefetch" href="/vuepressBlog/assets/js/75.0d74aa47.js"><link rel="prefetch" href="/vuepressBlog/assets/js/76.decbef7f.js"><link rel="prefetch" href="/vuepressBlog/assets/js/77.cf26a41c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/78.7e9719a9.js"><link rel="prefetch" href="/vuepressBlog/assets/js/79.b18aa9a5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/8.f2c8fce2.js"><link rel="prefetch" href="/vuepressBlog/assets/js/80.bf10097c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/81.c7ec1cbd.js"><link rel="prefetch" href="/vuepressBlog/assets/js/82.defd4a66.js"><link rel="prefetch" href="/vuepressBlog/assets/js/83.17d873e7.js"><link rel="prefetch" href="/vuepressBlog/assets/js/84.90787c9c.js"><link rel="prefetch" href="/vuepressBlog/assets/js/85.f58b5814.js"><link rel="prefetch" href="/vuepressBlog/assets/js/86.f5b19446.js"><link rel="prefetch" href="/vuepressBlog/assets/js/87.4d98d440.js"><link rel="prefetch" href="/vuepressBlog/assets/js/88.f33f65ac.js"><link rel="prefetch" href="/vuepressBlog/assets/js/89.bb41cce9.js"><link rel="prefetch" href="/vuepressBlog/assets/js/9.1aea8c91.js"><link rel="prefetch" href="/vuepressBlog/assets/js/90.0c4288c5.js"><link rel="prefetch" href="/vuepressBlog/assets/js/91.da6cef28.js"><link rel="prefetch" href="/vuepressBlog/assets/js/92.9f7e55e8.js"><link rel="prefetch" href="/vuepressBlog/assets/js/93.965ec53d.js"><link rel="prefetch" href="/vuepressBlog/assets/js/94.b57b9ca1.js"><link rel="prefetch" href="/vuepressBlog/assets/js/95.667ff312.js"><link rel="prefetch" href="/vuepressBlog/assets/js/96.08385682.js"><link rel="prefetch" href="/vuepressBlog/assets/js/97.e423e263.js"><link rel="prefetch" href="/vuepressBlog/assets/js/98.951c1b07.js"><link rel="prefetch" href="/vuepressBlog/assets/js/99.de6381b2.js">
+    <link rel="stylesheet" href="/vuepressBlog/assets/css/0.styles.bc106160.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressBlog/" class="home-link router-link-active"><!----> <span class="site-name">lyj Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/basic/algorithms/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/basic/network/" class="nav-link">
+  网络原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法研究
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/FFmpeg/" class="nav-link">
+  FFmpeg
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Python/" class="nav-link router-link-active">
+  Python
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/JavaScript/" class="nav-link">
+  JavaScript
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="InvestNote" class="dropdown-title"><span class="title">投资心得</span> <span class="arrow down"></span></button> <button type="button" aria-label="InvestNote" class="mobile-dropdown-title"><span class="title">投资心得</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepressBlog/investNote/economic/" class="nav-link">
+  经济
+</a></li><li class="dropdown-item"><!----> <a href="/vuepressBlog/investNote/chan/" class="nav-link">
+  缠论
+</a></li><li class="dropdown-item"><!----> <a href="/vuepressBlog/investNote/options/" class="nav-link">
+  期权
+</a></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuepressBlog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="TechNote" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="TechNote" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/basic/algorithms/" class="nav-link">
+  基础算法
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/basic/network/" class="nav-link">
+  网络原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法研究
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/recommendation_system/" class="nav-link">
+  推荐系统
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/algorithms/knowledge_graph/" class="nav-link">
+  知识图谱
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工程实践
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/FFmpeg/" class="nav-link">
+  FFmpeg
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/Python/" class="nav-link router-link-active">
+  Python
+</a></li><li class="dropdown-subitem"><a href="/vuepressBlog/techNote/engineering/JavaScript/" class="nav-link">
+  JavaScript
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="InvestNote" class="dropdown-title"><span class="title">投资心得</span> <span class="arrow down"></span></button> <button type="button" aria-label="InvestNote" class="mobile-dropdown-title"><span class="title">投资心得</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepressBlog/investNote/economic/" class="nav-link">
+  经济
+</a></li><li class="dropdown-item"><!----> <a href="/vuepressBlog/investNote/chan/" class="nav-link">
+  缠论
+</a></li><li class="dropdown-item"><!----> <a href="/vuepressBlog/investNote/options/" class="nav-link">
+  期权
+</a></li></ul></div></div><div class="nav-item"><a href="/vuepressBlog/resource/" class="nav-link">
+  资源聚合
+</a></div> <a href="https://github.com/liuyijian/vuepressBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Python 学习笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressBlog/techNote/engineering/Python/environment.html" class="sidebar-link">Python环境配置</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressBlog/techNote/engineering/Python/stl.html" class="sidebar-link">Python标准库 </a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Python/stl.html#multiprocessing" class="sidebar-link">multiprocessing</a></li><li class="sidebar-sub-header"><a href="/vuepressBlog/techNote/engineering/Python/stl.html#re" class="sidebar-link">re</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="asyncio"><a href="#asyncio" class="header-anchor">#</a> Asyncio</h1> <h2 id="preface"><a href="#preface" class="header-anchor">#</a> Preface</h2> <ul><li>Python3.4引入了asyncio库，Python3.5增加了async和await关键字以提高其可用性，这些条件为异步编程提供了基础，但Python的asyncio API用起来比较复杂</li> <li>使用asyncio库的原因有两个，一是提高并发，二是线程安全
+<ul><li>当你想获取1000个url的连接时，使用同步网络请求库requests会带来阻塞</li> <li>更容易避开race condition bugs</li></ul></li> <li>本书内容如下
+<ul><li>并发网络编程下，asyncio和threading的详细对比</li> <li>对async/await语法的介绍</li> <li>asyncio带来的新feature的概览</li> <li>提供与asyncio兼容的流行三方库的详细可扩展的代码用例，</li></ul></li></ul> <h2 id="chapter1-asyncio介绍"><a href="#chapter1-asyncio介绍" class="header-anchor">#</a> Chapter1 Asyncio介绍</h2> <h4 id="餐厅的小故事"><a href="#餐厅的小故事" class="header-anchor">#</a> 餐厅的小故事</h4> <p>餐厅的角色（一个角色对应一个线程）：</p> <ul><li>GreetBot：前台迎宾结账</li> <li>WaitBot：端茶倒水</li> <li>ChefBot：后台煮饭</li> <li>WineBot：管理酒吧</li></ul> <p>餐厅运作流程：</p> <ul><li>宾客被GreetBot引到桌子坐下，WaitBot会记录他们的点菜，并传给ChefBot，ChefBot开始做菜，WaitBot会定时检查有没有做好的菜，有就将它们端上桌子，当宾客吃完后，会到GreetBot处结账离开</li></ul> <p>餐厅出现的问题和解决办法：</p> <ul><li><p>问题一：宾客被引导到一张还没收拾干净的桌子，菜没做好就端上桌，繁忙时段缺人手，加人手则餐厅变挤且记录机器人行为的工作变得更多，在某些时刻所有机器人都在等待（类似于CPU空转等网络IO的request.get()返回）</p></li> <li><p>解决一：只请一个机器人，让它干所有事；</p></li> <li><p>问题二：但当一个爱唠嗑的客人一直和他聊天时，他没办法进厨房，导致蛋糕糊了（长时间无法切换任务）</p></li></ul> <h4 id="asyncio试图解决的问题"><a href="#asyncio试图解决的问题" class="header-anchor">#</a> Asyncio试图解决的问题</h4> <p>对于IO负载高的程序，使用async-based的并发与使用thread-based的并发相比，有两个优势</p> <ul><li>提供安全性更高的抢占式任务调度，避免大部分的竞争条件</li> <li>支持数千同时发生的socket连接，包括websocket，mqtt等新长连接技术</li></ul> <p>几个常见误区</p> <ul><li><p>误区一：asyncio会让代码加速得非常快：想快去用Cython！</p></li> <li><p>误区二：asyncio导致threading多余：</p> <ul><li>threading的价值在于能编写多核CPU程序，不同计算任务能共享内存，numpy也使用此技术加速矩阵运算，对于CPU密集型的任务，线程模型是最佳选择</li></ul></li> <li><p>误区三：asyncio解决了GIL锁的问题：</p> <ul><li>GIL影响的是多线程程序，GIL锁阻止的是多线程程序中真正的多核并行，但Asyncio是单线程的</li> <li>GIL锁问题参考PyCon 2010报告《Understanding the Python GIL》</li></ul></li> <li><p>误区四：asyncio避免全部的竞争条件</p> <ul><li>asyncio能消除特定类别的竞争条件，如进程内共享内存访问，但不能消除分布式微服务架构中常见的进程间共享资源访问竞争</li> <li>asyncio与多线程程序相比，执行控制在协程间的转移是可见的（await关键字），更容易追踪共享资源的访问</li></ul></li></ul> <p>并发处理的难点</p> <ul><li>应用程序如何支持健康检查</li> <li>如何通过有限的连接数访问数据库</li> <li>如何在接受到信号后，优雅的关闭连接</li> <li>如何处理磁盘访问和日志记录等阻塞的场景</li></ul> <h2 id="chap2-线程的真相"><a href="#chap2-线程的真相" class="header-anchor">#</a> Chap2 线程的真相</h2> <p>线程是操作系统提供的一个特性，它允许软件开发者告知操作系统程序的哪些部分可以并行执行，操作系统决定如何为每部分分配CPU资源</p> <h4 id="线程的好处"><a href="#线程的好处" class="header-anchor">#</a> 线程的好处</h4> <ul><li><p>代码可读性强：代码书写时仍采用自顶向下的线性命令结构</p></li> <li><p>基于共享内存的并行：使用共享内存避免数据在不同进程存储空间移动的花销</p></li> <li><p>已有最佳实践和讲解</p></li></ul> <p>Python解释器使用GIL，保护解释器的内部状态，避免线程间的竞争条件带来的灾难性后果。GIL导致了多个进程不会被你分配到单个CPU上，消除了并行的性能增益（除非使用Cython或Numba等工具绕开）</p> <p>编写线程程序的最佳实践是使用concurrent.futures模块的ThreadPoolExecutor类，简易代码如下</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> concurrent<span class="token punctuation">,</span>futures <span class="token keyword">import</span> ThreadPoolExecutor <span class="token keyword">as</span> Executor
+
+<span class="token keyword">def</span> <span class="token function">worker</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token operator">&lt;</span>process your data<span class="token punctuation">,</span> do <span class="token keyword">not</span> operate <span class="token keyword">global</span> variables<span class="token operator">&gt;</span>
+
+<span class="token keyword">with</span> Executor<span class="token punctuation">(</span>max_workers<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">as</span> exe<span class="token punctuation">:</span>
+  future <span class="token operator">=</span> exe<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>worker<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+</code></pre></div><h4 id="线程的坏处"><a href="#线程的坏处" class="header-anchor">#</a> 线程的坏处</h4> <ul><li>线程很难控制：线程bug和竞争条件很难de出来，代码逻辑难以推理</li> <li>线程是资源密集型的：线程需要调用额外的操作系统资源去创建，预分配线程栈会消耗虚拟内存，但在64位系统中，此问题被缓解了</li> <li>线程会影响吞吐量：在高并发情况下，上下文切换的开销会带来一定影响</li> <li>线程是不灵活的：操作系统会将CPU时间分配给每个线程，无论线程工作与否（如线程A可能在等待socket返回数据包），使用协程则能避免此问题）</li></ul> <h2 id="chap3-asyncio概览"><a href="#chap3-asyncio概览" class="header-anchor">#</a> Chap3 Asyncio概览</h2> <p>asyncio的底层细节：<a href="https://www.youtube.com/watch?v=MCs5OvhV9S4" target="_blank" rel="noopener noreferrer">Talk: Python Concurrency from the Ground Up: LIVE!<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>  PyCon2015</p> <p>介绍asyncio：<a href="https://m.youtube.com/watch?v=m28fiN9y_r8&amp;feature=youtu.be" target="_blank" rel="noopener noreferrer">Talk:async/await in Python 3.5 and Why It is Awesome<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> PyCon2016</p> <p>Asyncio API可以概括为以下流程：</p> <ul><li>开始asyncio 事件循环</li> <li>调用 async/await 函数</li> <li>创建一个任务在事件循环中执行</li> <li>等待多个任务执行完成</li> <li>所有并行任务执行完毕后关闭循环</li></ul> <h4 id="应用开发者参考"><a href="#应用开发者参考" class="header-anchor">#</a> 应用开发者参考</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> asyncio
+<span class="token keyword">import</span> time
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> Hello!'</span></span><span class="token punctuation">)</span>
+  <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> Goodbye!'</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># 在运行协程前，需要一个循环实例，在任何地方调用get_event_loop()会返回同一个循环实例，因为只使用了一个线程，但如果在async def 函数内，则应该使用get_running_loop()方法</span>
+loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># create_task(coro)将要运行的协程注册进事件循环，返回的task对象可用于监控任务状态并获取结果输出，也可用于取消任务</span>
+task <span class="token operator">=</span> loop<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># run_until_complete(coro)会阻塞当前线程（通常是主线程），循环将在coro执行完毕后马上结束,asyncio.run()函数内部也调用了此方法，故同样会阻塞当前线程</span>
+loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+pending <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>all_tasks<span class="token punctuation">(</span>loop<span class="token operator">=</span>loop<span class="token punctuation">)</span>
+<span class="token keyword">for</span> task <span class="token keyword">in</span> pending<span class="token punctuation">:</span>
+  task<span class="token punctuation">.</span>cancel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># </span>
+group <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>gather<span class="token punctuation">(</span><span class="token operator">*</span>pending<span class="token punctuation">,</span> return_exceptions<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>group<span class="token punctuation">)</span>
+<span class="token comment"># 关闭循环实例，如再用可以通过run()重新申请</span>
+loop<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> time
+<span class="token keyword">import</span> asyncio
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> Hello!'</span></span><span class="token punctuation">)</span>
+  <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> Goodbye!'</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">blocking</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token comment"># 使用传统的睡眠函数会阻塞线程</span>
+  time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> Hello from a thread'</span></span><span class="token punctuation">)</span>
+
+loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+task <span class="token operator">=</span> loop<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 在executor里执行不会阻塞主线程，函数返回一个Future对象，而非Task对象，故不会出现在all_tasks函数的返回中</span>
+loop<span class="token punctuation">.</span>run_in_executor<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> blocking<span class="token punctuation">)</span>
+loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+
+pending <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>all_tasks<span class="token punctuation">(</span>loop<span class="token operator">=</span>loop<span class="token punctuation">)</span>
+<span class="token keyword">for</span> task <span class="token keyword">in</span> pending<span class="token punctuation">:</span>
+  task<span class="token punctuation">.</span>cancel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+group <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>gather<span class="token punctuation">(</span><span class="token operator">*</span>pending<span class="token punctuation">,</span> return_exceptions<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>group<span class="token punctuation">)</span>
+loop<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="框架开发者参考"><a href="#框架开发者参考" class="header-anchor">#</a> 框架开发者参考</h4> <ul><li>对于框架开发者而言，关心的问题是如何建造一个async兼容的三方库，下面给出asyncio的层次结构</li></ul> <table><thead><tr><th>Level</th> <th>Concept</th> <th>Implmentation</th></tr></thead> <tbody><tr><td>Tier 9</td> <td>Network:streams</td> <td>StreamReader,StreamWriter,asyncio.open_connection(),asyncio.start_server()</td></tr> <tr><td>Tier 8</td> <td>Network:TCP&amp;UDP</td> <td>Protocol</td></tr> <tr><td>Tier 7</td> <td>Network:transports</td> <td>BaseTransport</td></tr> <tr><td>Tier 6</td> <td>Tools</td> <td>asyncio.Queue</td></tr> <tr><td>Tier 5</td> <td>Subprocesses &amp; threads</td> <td>run_in_executor(), asyncio.subprocess</td></tr> <tr><td>Tier 4</td> <td>Tasks</td> <td>asyncio.Task, asyncio.create_task()</td></tr> <tr><td>Tier 3</td> <td>Futures</td> <td>asyncio.Future</td></tr> <tr><td>Tier 2</td> <td>Event loop</td> <td>asyncio.run(), BaseEventLoop</td></tr> <tr><td>Tier 1(Base)</td> <td>Coroutines</td> <td>async def, async with, async for, wait</td></tr></tbody></table> <ul><li><p>市面上流行的基于Python原生协程的异步框架有Curio，Trio</p></li> <li><p>asyncio在Tier2提供loop的规格定义AbstractEventLoop和一种实现BaseEventLoop，所以框架开发者可以实现自己的EventLoop，如uvloop项目就提供一个更高效的loop实现</p></li> <li><p>Tier3和Tier4比较相近，Task是Future的一个子类，一个Future实例代表某种在事件循环中会通过notification返回结果的活动；而Task代表在事件循环中运行的协程</p></li> <li><p>Tier5代表需要在单独线程/进程中运行的工作，对于在async应用中使用blocking code提供帮助（如数据库连接，SQLAlchemy）</p></li> <li><p>Tier6提供额外的async-aware 工具，如asyncio.Queue，它与queue模块里定义的Queue具有相似的API，但在get()和put()调用时，要加上await关键字，在协程中无法使用queue.Queue中带阻塞的get()和put()功能</p></li> <li><p>Tier7～Tier9涉及网络IO，如aiohttp就提供好这些功能，若要使用原生，尽量看Tier9就行了</p></li></ul> <h4 id="协程"><a href="#协程" class="header-anchor">#</a> 协程</h4> <ul><li><p>如何定义一个协程？</p> <ul><li>使用关键字async def可以定义一个协程函数，当调用协程函数时，才会返回一个协程对象</li></ul></li> <li><p>协程是什么？</p> <ul><li>一个具备恢复已挂起函数的能力的对象</li></ul></li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># 使用inspect模块与使用type()函数相比，能返回更详细的信息</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> inspect
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  		<span class="token keyword">return</span> <span class="token number">123</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> coro <span class="token operator">=</span> f<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'function'</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> inspect<span class="token punctuation">.</span>iscoroutinefunction<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+<span class="token boolean">True</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>coro<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'coroutine'</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> inspect<span class="token punctuation">.</span>iscoroutine<span class="token punctuation">(</span>coro<span class="token punctuation">)</span>
+<span class="token boolean">True</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">def</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  		<span class="token keyword">yield</span> <span class="token number">123</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'function'</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> gen <span class="token operator">=</span> g<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>gen<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'generator'</span><span class="token operator">&gt;</span>
+</code></pre></div><ul><li>协程的开始和结束
+<ul><li>开始：通过向协程对象发送None来初始化其执行（现实中由loop对象自动管理，无需人工执行）</li> <li>结束：协程返回时，会报一个StopIteration错误，协程的正常返回值可通过错误对象的value获取</li></ul></li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  		<span class="token keyword">return</span> <span class="token number">123</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> coro <span class="token operator">=</span> f<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">try</span><span class="token punctuation">:</span>
+  		coro<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+		<span class="token keyword">except</span> StopIteration <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+  		<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Answer was '</span><span class="token punctuation">,</span>e<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+
+<span class="token number">123</span>
+</code></pre></div><h4 id="await关键字"><a href="#await关键字" class="header-anchor">#</a> await关键字</h4> <ul><li><p>await关键字接受一个awaitable对象作为参数，awaitable对象有以下几种</p> <ul><li>一个协程</li> <li>定义了_<em>await</em>_()方法的对象，此方法需要返回一个迭代器</li></ul></li> <li><p>当调用task.cancel()时，事件循环内部会调用coro.throw()在协程内部去raise一个asyncio.CancelledError</p></li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> asyncio
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">except</span> asyncio<span class="token punctuation">.</span>CancelledError<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'I was cancelled!'</span><span class="token punctuation">)</span>
+  <span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token number">111</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> coro <span class="token operator">=</span> f<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> coro<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> coro<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> coro<span class="token punctuation">.</span>throw<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>CancelledError<span class="token punctuation">)</span>
+I was cancelled!
+StopIteration
+</code></pre></div><ul><li>使用run_until_complete函数去让event loop帮我们自动完成.send(None)并检出StopIteration中的返回值</li></ul> <h4 id="事件循环"><a href="#事件循环" class="header-anchor">#</a> 事件循环</h4> <p>事件循环处理所有的协程切换，并捕获所有的StopIteration错误，监听socket和文件描述符发生的事件</p> <p>Python3.7后生成一个async task的代码如下</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> asyncio
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token punctuation">)</span>&quot;
+  asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span><span class="token operator">&lt;</span>some other coro<span class="token operator">&gt;</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="tasks-和-futures"><a href="#tasks-和-futures" class="header-anchor">#</a> Tasks 和 Futures</h4> <ul><li>一个Future实例能通过.set_result(value)设置值并通过.result()去获取其返回值；能通过.cancel()取消并通过.cancelled()检查其状态；能在完成后执行回调函数</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> asyncio <span class="token keyword">import</span> Future
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> f <span class="token operator">=</span> Future<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> f<span class="token punctuation">.</span>done<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token boolean">False</span>
+</code></pre></div><div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> asyncio
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>f<span class="token punctuation">:</span> asyncio<span class="token punctuation">.</span>Future<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token comment"># set_result 在Python3.8后不能对Task用了，因为Task不能从外部注入值</span>
+  f<span class="token punctuation">.</span>set_result<span class="token punctuation">(</span><span class="token string">'I have finished'</span><span class="token punctuation">)</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> fut <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>Future<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>fut<span class="token punctuation">.</span>done<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token boolean">False</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> loop<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>main<span class="token punctuation">(</span>fut<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span>Task pending name<span class="token operator">=</span><span class="token string">'Task-1'</span> coro<span class="token operator">=</span><span class="token operator">&lt;</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span> running at <span class="token operator">&lt;</span>console<span class="token operator">&gt;</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token operator">&gt;&gt;</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>fut<span class="token punctuation">)</span>
+<span class="token string">'I have finished'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>fut<span class="token punctuation">.</span>done<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token boolean">True</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>fut<span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+I have finished
+</code></pre></div><ul><li>asyncio.ensure_future()函数对于Task和Future对象原样返回，对于coroutine对象则包装成Task对象返回</li> <li>asyncio.gather(*aws, loop=None, ...)函数内部会先调用ensure_future()函数对传入的awaitable对象进行处理</li></ul> <h4 id="async-context-managers-async-with"><a href="#async-context-managers-async-with" class="header-anchor">#</a> Async Context Managers：async with</h4> <ul><li>下载网页和更新数据库状态都会带来阻塞，使用async改造</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> contextlib <span class="token keyword">import</span> contextmanager
+
+<span class="token decorator annotation punctuation">@contextmanager</span>
+<span class="token keyword">def</span> <span class="token function">web_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  data <span class="token operator">=</span> download_webpage<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> data
+  update_stats<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> web_page<span class="token punctuation">(</span><span class="token string">'google.com'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> data<span class="token punctuation">:</span>
+  process<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+</code></pre></div><div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> contextlib <span class="token keyword">import</span> asynccontextmanager
+
+<span class="token decorator annotation punctuation">@asynccontextmanager</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">web_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  data <span class="token operator">=</span> <span class="token keyword">await</span> download_page<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> data
+  <span class="token keyword">await</span> update_stats<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">with</span> web_page<span class="token punctuation">(</span><span class="token string">'google.com'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> data<span class="token punctuation">:</span>
+  process<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+</code></pre></div><ul><li>但现实中，像requests之类的库是同步的，改造它不太现实，所以一般采用更简易的方法迁移</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> contextlib <span class="token keyword">import</span> asynccontextmanager
+
+<span class="token decorator annotation punctuation">@asynccontextmanager</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">web_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  data <span class="token operator">=</span> <span class="token keyword">await</span> loop<span class="token punctuation">.</span>run_in_executor<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> download_webpage<span class="token punctuation">,</span> url<span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> data
+  <span class="token keyword">await</span> loop<span class="token punctuation">.</span>run_in_executor<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> update_stats<span class="token punctuation">,</span> url<span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">with</span> web_page<span class="token punctuation">(</span><span class="token string">'google.com'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> data<span class="token punctuation">:</span>
+  process<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+</code></pre></div><h4 id="async-iterators-async-for"><a href="#async-iterators-async-for" class="header-anchor">#</a> Async Iterators: async for</h4> <ul><li>一个标准的可迭代对象需要定义__iter__() 和 __next__()方法，__iter__() 方法用于状态初始化，返回一个可迭代对象，每次迭代会调用__next__()方法</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">:</span>
+  <span class="token keyword">def</span> <span class="token function">__iter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> x
+ 	<span class="token keyword">def</span> <span class="token function">__next__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> self<span class="token punctuation">.</span>x <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">:</span>
+      <span class="token keyword">raise</span> StopIteration
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+      self<span class="token punctuation">.</span>x <span class="token operator">+=</span> <span class="token number">1</span>
+      <span class="token keyword">return</span> self<span class="token punctuation">.</span>x
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> A<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+</code></pre></div><ul><li>一个async的可迭代对象需要定义__aiter__() 和 __anext__()方法</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> asyncio
+<span class="token keyword">from</span> aioredis <span class="token keyword">import</span> create_redis
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  redis <span class="token operator">=</span> <span class="token keyword">await</span> create_redis<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">6379</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'America'</span><span class="token punctuation">,</span> <span class="token string">'Africa'</span><span class="token punctuation">,</span> <span class="token string">'Asia'</span><span class="token punctuation">]</span>
+  
+  <span class="token keyword">async</span> <span class="token keyword">for</span> value <span class="token keyword">in</span> OneAtTime<span class="token punctuation">(</span>redis<span class="token punctuation">,</span> keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">await</span> do_something_with<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OneAtTime</span><span class="token punctuation">:</span>
+  <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> redis<span class="token punctuation">,</span> keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>redis <span class="token operator">=</span> redis
+    self<span class="token punctuation">.</span>keys <span class="token operator">=</span> keys
+  <span class="token keyword">def</span> <span class="token function">__aiter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>ikeys <span class="token operator">=</span> <span class="token builtin">iter</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>keys<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> self
+ 	<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">__anext__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+      k <span class="token operator">=</span> <span class="token builtin">next</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>ikeys<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> StopIteration<span class="token punctuation">:</span>
+      <span class="token keyword">raise</span> StopAsyncIteration
+    value <span class="token operator">=</span> <span class="token keyword">await</span> redis<span class="token punctuation">.</span>get<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> value
+
+asynciooo<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="async-generators"><a href="#async-generators" class="header-anchor">#</a> Async Generators</h4> <ul><li>async generator是用async def定义的函数，且内部带有yield关键字的</li></ul> <h4 id="async-comprehensions"><a href="#async-comprehensions" class="header-anchor">#</a> Async Comprehensions</h4> <ul><li>async对于列表推导同样有用，使用async for</li></ul> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> asyncio
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  		<span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+  		<span class="token keyword">return</span> x<span class="token operator">+</span><span class="token number">100</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">factory</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  		<span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    		<span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+    		<span class="token keyword">yield</span> f<span class="token punctuation">,</span> x
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  		results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">await</span> f<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token keyword">for</span> f<span class="token punctuation">,</span> x <span class="token keyword">in</span> factory<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'results = '</span><span class="token punctuation">,</span> results<span class="token punctuation">)</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">,</span><span class="token number">102</span><span class="token punctuation">]</span>
+</code></pre></div><h4 id="优雅地启动和关闭"><a href="#优雅地启动和关闭" class="header-anchor">#</a> 优雅地启动和关闭</h4> <ul><li><p>启动：最简单的办法是定义一个main()协程函数并用asyncio.run()执行它</p></li> <li><p>关闭：当main()协程函数退出时，asyncio.run()会先收集所有挂起的task对象，并取消这些任务，组成一个group task，然后对这个group task使用run_until_complete()去等待他们完成</p></li> <li><p>Python3.9中，asyncio.run()函数支持等待executor shutdown了</p></li></ul> <h2 id="chap4-asyncio三方库"><a href="#chap4-asyncio三方库" class="header-anchor">#</a> Chap4 Asyncio三方库</h2> <ul><li>使用asyncio里面的streams API构建socket应用程序</li> <li>twisted项目，从06年开始，一直引导着异步编程的潮流，内部提供高质量的协议实现（HTTP、XMPP、NNTP、IMAP、SSH、FTP、DNS、SMTP等等）</li> <li>Janus queue，提供了线程和协程间信息互通的队列，python原生的queue.Queue和asyncio.Queue不能满足这一点</li> <li>aiohttp提供异步的HTTP客户端和服务端，包括websocket支持；可搭配splash来写爬虫</li> <li>zeromq消息队列</li> <li>asynpg &amp; Sanic用于构建应用缓存</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">4/29/2021, 5:59:27 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/vuepressBlog/assets/js/app.d3f3e682.js" defer></script><script src="/vuepressBlog/assets/js/2.401ce0c2.js" defer></script><script src="/vuepressBlog/assets/js/102.0eba577a.js" defer></script>
+  </body>
+</html>
