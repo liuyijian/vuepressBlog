@@ -18,13 +18,23 @@ module.exports = {
             ariaLabel: 'TechNote',
             items: [
               {
-                text: '算法原理',
-                ariaLabel: 'algorithms',
-                items: [
+                text: '基础知识',
+                ariaLabel: 'basic',
+                items:[
                   {
                     text: '基础算法',
-                    link: '/techNote/algorithms/basic/'
+                    link: '/techNote/basic/algorithms/'
                   },
+                  {
+                    text: '网络原理',
+                    link: '/techNote/basic/network/'
+                  }
+                ]
+              },
+              {
+                text: '算法研究',
+                ariaLabel: 'algorithms',
+                items: [
                   {
                     text: '推荐系统',
                     link: '/techNote/algorithms/recommendation_system/'
@@ -57,7 +67,7 @@ module.exports = {
                   },
                   {
                     text: 'JavaScript',
-                    link: '/techNote/engineering/JavaScript'
+                    link: '/techNote/engineering/JavaScript/'
                   }
                 ]
               }
@@ -88,13 +98,21 @@ module.exports = {
           }
         ],
         sidebar: {
-          "/techNote/algorithms/basic/": [{
+          "/techNote/basic/algorithms/": [{
             title: '基础算法',
             collapsable: false,
             children: [
                 {title: 'Chap1 递归与分治', path:'Chap1'},
                 {title: 'Chap2 动态规划', path:'Chap2'},
                 {title: 'Chap3 贪心', path:'Chap3'},
+              ]
+          }],
+          "/techNote/basic/network/": [{
+            title: '网络原理',
+            collapsable: false,
+            children: [
+                {title: 'Chap1 计算机网络和因特网', path:'Chap1'},
+                {title: 'Chap2 应用层', path:'Chap2'},
               ]
           }],
           "/techNote/algorithms/recommendation_system/": [{

@@ -64,8 +64,8 @@ def traceback(i, j, s):
 设序列 $X = \{ x_1, x_2, \dots x_m\}$ 和 $Y = \{y_1, y_2, \dots y_n\}$ 的最长公共子序列为 $Z=\{z_1,z_2, \dots z_k\}$，则有以下性质：
 
 * 若 $x_m = y_n$，则 $z_k = x_m = y_n$ ，且 $Z_{k-1}$ 是 $X_{m-1}$ 和 $Y_{n-1}$ 的最长公共子序列
-* 若 $x_m \neq y_n$，且 $z_k \neq x_m $ ，则 Z 是 $X_{m-1}$ 和 $Y$ 的最长公共子序列
-* 若 $x_m \neq y_n$，且 $z_k \neq y_n$ ，且  Z 是 $ X $ 和 $Y_{n-1}$ 的最长公共子序列
+* 若 $x_m \neq y_n$，且 $z_k \neq x_m$ ，则 Z 是 $X_{m-1}$ 和 $Y$ 的最长公共子序列
+* 若 $x_m \neq y_n$，且 $z_k \neq y_n$ ，且  Z 是 $X$ 和 $Y_{n-1}$ 的最长公共子序列
 
 记 $c[i][j]$ 为 $X_i$ 和 $Y_j$ 的最长公共子序列的长度，有递归关系如下：
 
@@ -170,7 +170,7 @@ def maxSum(n, a, best_i, best_j):
   return sum
 ```
 
-考虑时间复杂度为 $T(n) = O(n\log n) $的分治算法对应的三种情形
+考虑时间复杂度为 $T(n) = O(n\log n)$的分治算法对应的三种情形
 
 * $a[1:n]$的最大子段和与 $a[1:\frac{n}{2}]$ 的最大子段和相同
 * $a[1:n]$的最大子段和与 $a[\frac{n}{2}+1:n]$ 的最大子段和相同
@@ -181,7 +181,7 @@ def maxSum(n, a, best_i, best_j):
 
 考虑时间复杂度为 $T(n) = O(n)$ 的动态规划算法
 
-记 $b[j] = \max \limits_{1 \leq i \leq j}\{\sum\limits_{k=i}^{j}a[k]\} \quad s.t. 1 \leq j\leq n$，有最优子结构 $b[j] = \max \{a[j], \ b[j-1]+a[j] \}$，初始的最大子段和默认为 $sum = b[0]  = 0 $，每次有新的 $b[j]$，都拿去比一比，把较大的存起来，代码如下：
+记 $b[j] = \max \limits_{1 \leq i \leq j}\{\sum\limits_{k=i}^{j}a[k]\} \quad s.t. 1 \leq j\leq n$，有最优子结构 $b[j] = \max \{a[j], \ b[j-1]+a[j] \}$，初始的最大子段和默认为 $sum = b[0] = 0$，每次有新的 $b[j]$，都拿去比一比，把较大的存起来，代码如下：
 
 ```python
 def maxSum(n, a):
@@ -219,7 +219,7 @@ def maxSum2(a):
 
 上述算法在按行求和聚合的时候，出现了大量的重复计算，可以用下述方法将时间复杂度优化优化成 $O(mn)$ ：
 
-* $ a = [1, 3, 2, 4, 6]$
+* $a = [1, 3, 2, 4, 6]$
 * 先用 $O(n)$ 时间累加一次结果 $b = [1, 4, 6, 10, 16]$
 * 只需 $O(1)$ 时间即可计算 $\sum\limits_{k = i}^{j}a[k] = b[j] - b[i]$
 
@@ -251,7 +251,7 @@ def maxSum2(a):
 
   * 若 $(i, \pi(i)) \in MNS(i,j)$ ，则对任意 $(t, \pi(t)) \in MNS(i,j)$ ，有 $t \lt i$ 且 $\pi(t) \lt \pi(i)$ ，否则会相交；所以 $MNS(i,j) - \{(i,\pi(i))\}  = MNS(i-1, \pi(i)-1)$ 
 
-  * 若 $(i, \pi(i)) \notin MNS(i,j)$ ，则对任意 $(t, \pi(t)) \in MNS(i,j)$ ，有 $t \lt i$ 且 $\pi(t) \lt \pi(i)$ ，从而 $MNS(i,j) \subseteq N(i-1,j) $ , $S(i,j) \leq S(i-1,j)$，另一方面，$MNS(i-1,j) \subseteq N(i,j)$ ，$S(i-1,j) \leq S(i-1,j)$，结合二者可得 $S(i,j) = S(i-1,j)$ 
+  * 若 $(i, \pi(i)) \notin MNS(i,j)$ ，则对任意 $(t, \pi(t)) \in MNS(i,j)$ ，有 $t \lt i$ 且 $\pi(t) \lt \pi(i)$ ，从而 $MNS(i,j) \subseteq N(i-1,j)$ , $S(i,j) \leq S(i-1,j)$，另一方面，$MNS(i-1,j) \subseteq N(i,j)$ ，$S(i-1,j) \leq S(i-1,j)$，结合二者可得 $S(i,j) = S(i-1,j)$ 
 
 故有最优子结构如下：
 
