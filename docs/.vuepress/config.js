@@ -46,6 +46,10 @@ module.exports = {
                   {
                     text: '知识图谱',
                     link: '/techNote/algorithms/knowledge_graph/'
+                  },
+                  {
+                    text: '自然语言处理',
+                    link: '/techNote/algorithms/nlp/'
                   }
                 ]
               },
@@ -124,7 +128,7 @@ module.exports = {
             title: '操作系统',
             collapsable: false,
             children: [
-
+                {title: 'Chap1', path:'Chap1'},
               ]
           }],
           "/techNote/algorithms/recommendation_system/": [{
@@ -155,11 +159,11 @@ module.exports = {
                 {title: 'Chap8 知识图谱应用实例', path:'Chap8'},
               ]
           }],
-          "/techNote/algorithms/nlp": [{
+          "/techNote/algorithms/nlp/": [{
             title: '自然语言处理',
             collapsable: false,
             children:[
-              {title: 'slp读书笔记', path: 'Chap1'},
+              {title: 'Chap1', path: 'Chap1'},
             ]
           }],
           "/techNote/engineering/Redis/": [{
