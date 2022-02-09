@@ -80,7 +80,7 @@ Python解释器使用GIL，保护解释器的内部状态，避免线程间的�
 编写线程程序的最佳实践是使用concurrent.futures模块的ThreadPoolExecutor类，简易代码如下
 
 ```python
-from concurrent,futures import ThreadPoolExecutor as Executor
+from concurrent.futures import ThreadPoolExecutor as Executor
 
 def worker(data):
   <process your data, do not operate global variables>

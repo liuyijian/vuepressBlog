@@ -1,20 +1,20 @@
-## Chap2 应用层
+# Chap2 应用层
 
-### 2.1 应用层协议原理
+## 2.1 应用层协议原理
 
-#### 2.1.1 网络应用程序体系结构
+### 2.1.1 网络应用程序体系结构
 
 * 网络体系结构是固定的，为应用程序提供了特定的服务集合，应用程序体系结构由应用程序研发者设计，规定了如何在各种端系统上组织该应用程序，主流的体系结构包括客户-服务器（Client-Server）结构和对等（P2P）体系结构
   * P2P结构具有自扩展性，成本较低，但它也面临三个主要挑战：ISP的非对称性（下载带宽>上传带宽）对P2P不友好，高度分布和开放特性带来应用安全问题，激励用户自愿向应用提供带宽、存储和计算资源的机制有待设计和加强
 
-#### 2.1.2 进程通信
+### 2.1.2 进程通信
 
 * 进程通过套接字（socket）的软件接口向网络收发报文；应用程序开发者可以控制套接字在应用层端的一切，但对运输层的控制仅限于选择运输层协议和指定几个运输层参数（最大缓存、最大报文段长度）
 * socket通过IP地址和端口号寻到对应的进程
 
 ![image-20210423131934042](https://tva1.sinaimg.cn/large/008i3skNly1gq0kaf4402j313q0j6ac0.jpg)
 
-#### 2.1.3 可供应用程序使用的运输服务
+### 2.1.3 可供应用程序使用的运输服务
 
 * 应用程序服务要求可以根据以下几点分类：可靠数据传输、吞吐量、定时和安全性
   * 可靠数据传输：邮件、文件等数据必须保证可靠性，而音视频应用则允许出现少量数据丢失
@@ -22,7 +22,7 @@
   * 定时：运输层协议能提供定时保证，如电话会议，多方游戏的应用具有实时交互的性质
   * 安全性：运输协议能为应用程序提供多种安全性服务，如加密由发送进程传输的所有数据，还有数据完整性和端点鉴别
 
-#### 2.1.4 因特网提供的运输服务
+### 2.1.4 因特网提供的运输服务
 
 * 因特网为应用程序提供两个运输层协议：TCP和UDP
 * TCP服务模型包括面向连接服务和可靠数据传输服务
@@ -32,20 +32,20 @@
 * UDP
   * 提供最小服务，无连接、没有可靠性保证，没有拥塞控制机制，报文可能乱序到达
 
-#### 2.1.5 应用层协议
+### 2.1.5 应用层协议
 
 * 应用层协议定义了交换的报文类型，各种报文类型的语法，字段的语义，一个进程何时以及如何发送报文，对报文进行响应的规则
 * web应用的应用层协议是HTTP，文件传输的应用层协议是FTP，因特网目录服务的应用层协议是DNS
 
-### 2.2 Web和HTTP
+## 2.2 Web和HTTP
 
-#### 2.2.1 HTTP概况
+### 2.2.1 HTTP概况
 
 * Web的应用层协议是超文本传输协议（HyperText Transfer Protocol），客户程序和服务器程序运行在不同的端系统中，通过交换HTTP报文进行会话
 * Web浏览器实现了HTTP的客户端，Web服务器实现了HTTP的服务器端
 * HTTP是一个无状态协议，并不保存关于客户的任何信息，并使用TCP作为它的支撑运输协议
 
-#### 2.2.2 非持续连接和持续连接
+### 2.2.2 非持续连接和持续连接
 
 * 每个请求/响应对是经过一个单独的TCP连接发送（非持续连接）还是所有的请求/响应经相同的TCP连接发送（持续连接）呢？
 * HTTP 1.1 开始引入持续连接的实践
@@ -55,7 +55,7 @@
 
 * 非持续连接有一些缺点，客户和服务器需要为每个连接分配TCP缓冲区和保持TCP变量，为Web服务器带来严重负担，且每个对象需要经受两倍RTT的交付时延；持续连接则可以使用一条TCP请求多个对象，一定时间间隔没有使用后就会由HTTP服务器自动关闭连接
 
-#### 2.2.3 HTTP报文格式
+### 2.2.3 HTTP报文格式
 
 <img src="https://tva1.sinaimg.cn/large/008i3skNly1gpw7wwrpf8j30j4062my1.jpg" alt="image-20210425193251068" style="width:50%;" /><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpw9adgo8gj30re0am75z.jpg" alt="image-20210425202021951" style="width:50%;" />
 
@@ -65,7 +65,9 @@
 
 * Host字段指明对象所在的主机，Connection字段close值要求服务器发送完被请求的对象后关闭这条连接
 
-* 下面是请求报文的通用格式，使用GET方法时实体体为空，使用POST方法时才使用实体体（常用于表单提交），服务器收到HEAD请求时，将会用一个HTTP报文进行响应，但不返回请求对象，常用于调试追踪，PUT方法常用于上传对象到服务器，DELETE方法常用于删除服务器上的对象<img src="https://tva1.sinaimg.cn/large/008i3skNly1gpw8fujzduj30wg0j8dhx.jpg" alt="image-20210425195103266"  style="width:50%"><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpw9mfybhtj30wc0j876d.jpg" alt="image-20210425203157703" style="width:50%;" />
+* 下面是请求报文的通用格式，使用GET方法时实体体为空，使用POST方法时才使用实体体（常用于表单提交），服务器收到HEAD请求时，将会用一个HTTP报文进行响应，但不返回请求对象，常用于调试追踪，PUT方法常用于上传对象到服务器，DELETE方法常用于删除服务器上的对象
+
+* <img src="https://tva1.sinaimg.cn/large/008i3skNly1gpw8fujzduj30wg0j8dhx.jpg" alt="image-20210425195103266"  style="width:50%"><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpw9mfybhtj30wc0j876d.jpg" alt="image-20210425203157703" style="width:50%;" />
 
 * 响应报文，包括三部分
 
@@ -82,13 +84,13 @@
 
   * 实体体
 
-#### 2.2.4 用户与服务器的交互：cookie
+### 2.2.4 用户与服务器的交互：cookie
 
 * RFC6265中定义，HTTP使用cookie以允许站点对用户进行跟踪，cookie会出现在HTTP请求/响应报文的首部行，用户端系统保留有cookie文件由用户浏览器进行管理，web站点也有一个后端数据库保存cookie，下图是一个流程
 
   ![image-20210425204735938](https://tva1.sinaimg.cn/large/008i3skNly1gq0kajb6icj30vf0u0tb9.jpg)
 
-#### 2.2.5 Web缓存
+### 2.2.5 Web缓存
 
 * Web缓存器也叫代理服务器（proxy server），有自己的存储空间，保存最近请求过的对象的副本
 
@@ -100,7 +102,7 @@
 
 * 放在缓存器的对象副本可能是旧的，可以通过条件GET方法（GET请求报文中包含一个“If-Modified-Since:”首部行），仅当自指定日期后对象被修改过，才发送过该对象，若无修改，返回状态码304 Not Modified
 
-#### 2.2.6 HTTP/2
+### 2.2.6 HTTP/2
 
 * HTTP/2 标准发布于2015年，是自1997年发布的HTTP/1.1以来的首个新版本
 * 截至2020，全球访问量前千万的网站中，40%实现了对HTTP/2的支持；主流浏览器也实现了对HTTP/2的支持
@@ -112,7 +114,7 @@
 * 通过单条TCP连接传输页面的所有对象会带来队头阻塞问题（Head-Of-Line blocking），某个资源若过大会堵住后面小资源的传送。HTTP/1.1通过使用多个并行的TCP连接解决这个问题，开多个并行TCP连接能吃到更多的带宽，减少响应时间。而HTTP/2的解决方式是将对象的请求切分为若干个小帧去并行化请求，帧请求会在对象列表上轮询，确保小对象尽早被接收，而帧会使用二进制编码的方式压缩，减少了传输大小，也降低了出错率
 * QUIC是基于UDP的一个新的应用层上实现的“传输”协议，包括消息多路复用，单连接流量控制，低延迟连接建立等特性，HTTP/3标准将建立在QUIC上，
 
-### 2.3 电子邮件
+## 2.3 电子邮件
 
 * 电子邮件具有以下特征：正文+附件，超链接，HTML格式文本，嵌入图片等等，是一种廉价的异步通信方式
 * 因特网邮件系统中有三个组成元素：用户代理，邮件服务器，SMTP协议
@@ -144,11 +146,11 @@ C: QUIT
 S: 221 hamburger.edu closing connection
 ```
 
-### 2.4 DNS-因特网目录服务
+## 2.4 DNS-因特网目录服务
 
 * 主机的标识之一是域名，但域名未能提供位置信息，且域名长短不一，难以被路由器处理，所以通过IP地址标识主机
 
-#### 2.4.1 DNS工作机理
+### 2.4.1 DNS工作机理
 
 * DNS：domain name system，域名系统，用于将域名映射成IP地址
 * DNS包括以下组件
@@ -167,7 +169,7 @@ S: 221 hamburger.edu closing connection
 
 * DNS缓存技术可以改善时延并减少因特网上的DNS报文流量，本地DNS服务器可以直接返回而非查询其他DNS服务器，但缓存期限一般设置为两天
 
-#### 2.4.2 DNS记录与报文
+### 2.4.2 DNS记录与报文
 
 * DNS服务器存储了资源记录，提供了主机名到IP地址的映射，每个DNS回答报文包含一条或多条资源记录
 * 资源记录是一个四元组（Name，Value，Type，TTL）
@@ -213,9 +215,9 @@ S: 221 hamburger.edu closing connection
     * DS：存储DNSKEY的散列值，用于验证DNSKEY的真实性，从而建立信任链
     * NSEC：响应不存在的资源记录
 
-### 2.5 P2P 文件传输
+## 2.5 P2P 文件传输
 
-#### 2.5.1 P2P 架构的可扩展性
+### 2.5.1 P2P 架构的可扩展性
 
 * 考虑将一个大文件从单一服务器分发到多个主机上，若全都由server发，对于server带宽要求很高；在P2P文件分发中，每个对等结点（peer）可以将文件任意部分二次分发给其他对等结点
 
@@ -229,13 +231,13 @@ S: 221 hamburger.edu closing connection
 
 | Client-Server 架构                                           | P2P 架构                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| $D_{CS} \ge \max\{\frac{NF}{u_s}, \frac{F}{\min\{d_1, d_2, \dots, d_N\}}\}$ | $D_{P2P} = \max \{\frac{F}{u_s}, \frac{F}{\min \{d_1, d_2, \dots, d_N\}}, \frac{NF}{u_s + \sum\limits_{i=1}^{N}u_i}\} $ |
+| $D_{CS} \ge \max\{\frac{NF}{u_s}, \frac{F}{\min\{d_1, d_2, \dots, d_N\}}\}$ | $D_{P2P} = \max \{\frac{F}{u_s}, \frac{F}{\min \{d_1, d_2, \dots, d_N\}}, \frac{NF}{u_s + \sum\limits_{i=1}^{N}u_i}\}$ |
 
 * 假设 $F/u = 1$ hour, $u_s=10u$，$d_{min} \ge u_s$，随着$N$增大，分发时间如下图
 
 ![image-20210427180121646](https://tva1.sinaimg.cn/large/008i3skNly1gq0kaepmi9j30si0is75b.jpg)
 
-#### 2.5.2 BitTorrent协议
+### 2.5.2 BitTorrent协议
 
 * BitTorrent是2011年提出的文件分发协议，参与文件分发的节点组成一个torrent
 * torrent中的每个节点从另一节点中下载相同大小的文件块（典型值：256KB）
@@ -252,18 +254,18 @@ S: 221 hamburger.edu closing connection
 
 * BitTorrent协议还有一些额外机制，如最小chunks，管道化，随机选择，终结模式，反冷落机制等等
 
-### 2.6 视频流和内容分发网络
+## 2.6 视频流和内容分发网络
 
-#### 2.6.1 互联网视频
+### 2.6.1 互联网视频
 
 * 衡量视频流的一个重要方法是端到端吞吐量，可以根据网速差异发送不同的压缩视频版本
 
-#### 2.6.2 HTTP Streaming 和 DASH
+### 2.6.2 HTTP Streaming 和 DASH
 
 * HTTP Streaming中，视频文件会正常存储在HTTP服务器上，客户通过建立TCP连接并往特定URL发送GET请求，在客户端，会维护一个缓存，视频应用从客户端缓存中定期获取帧并放映；但此法没有考虑到不同客户的带宽差异，这催生了一种新的基于HTTP的流传输技术，叫做Dynamic Adaptive Streaming over HTTP（DASH）
 * DASH中，视频会编码成不同码率的版本（不同清晰度），用户会周期性地根据当前网速和缓存量请求几秒的不同版本的视频
 
-#### 2.6.3 内容分发网络（CDN）
+### 2.6.3 内容分发网络（CDN）
 
 * 传统大数据中心存储视频并分发具有以下三个缺点
   * 环球传输可能的端到端延迟取决于瓶颈链路，故延迟较高
@@ -280,9 +282,9 @@ S: 221 hamburger.edu closing connection
 
 ![image-20210429104028782](https://tva1.sinaimg.cn/large/008i3skNly1gq0kaihbfxj30ry0m0wg0.jpg)
 
-### 2.7 socket编程
+## 2.7 socket编程
 
-#### 2.7.1 UDPClient.py
+### 2.7.1 UDPClient.py
 
 ```python
 from socket import *
@@ -296,7 +298,7 @@ print(modifiedMessage.decode())
 clientSocket.close()
 ```
 
-#### 2.7.2 UDPServer.py
+### 2.7.2 UDPServer.py
 
 ```python
 from socket import *
@@ -310,7 +312,7 @@ while True:
   serverSocket.sendto(modifiedMessage.encode(), clientAddress)
 ```
 
-#### 2.7.3 TCPClient.py
+### 2.7.3 TCPClient.py
 
 ```python
 from socket import *
@@ -325,7 +327,7 @@ print('From Server: ', modifiedSentence.decode())
 clientSocket.close()
 ```
 
-#### 2.7.4 TCPServer.py
+### 2.7.4 TCPServer.py
 
 ```python
 from socket import *

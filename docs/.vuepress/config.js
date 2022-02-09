@@ -3,8 +3,8 @@ module.exports = {
     title: 'lyj Blog',
     description: '我来到，我看见，我记录',
     head: [
-        ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css' }],
-        ['link', { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" }]
+        ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.0/katex.min.css' }],
+        ['link', { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" }]
     ],
     themeConfig: {
         nav: [
@@ -28,6 +28,10 @@ module.exports = {
                   {
                     text: '网络原理',
                     link: '/techNote/basic/network/'
+                  },
+                  {
+                    text: '操作系统',
+                    link: '/techNote/basic/os/'
                   }
                 ]
               },
@@ -113,6 +117,14 @@ module.exports = {
             children: [
                 {title: 'Chap1 计算机网络和因特网', path:'Chap1'},
                 {title: 'Chap2 应用层', path:'Chap2'},
+                {title: 'Chap3 传输层', path:'Chap3'},
+              ]
+          }],
+          "/techNote/basic/os/": [{
+            title: '操作系统',
+            collapsable: false,
+            children: [
+
               ]
           }],
           "/techNote/algorithms/recommendation_system/": [{
@@ -142,6 +154,13 @@ module.exports = {
                 {title: 'Chap7 知识问答', path:'Chap7'},
                 {title: 'Chap8 知识图谱应用实例', path:'Chap8'},
               ]
+          }],
+          "/techNote/algorithms/nlp": [{
+            title: '自然语言处理',
+            collapsable: false,
+            children:[
+              {title: 'slp读书笔记', path: 'Chap1'},
+            ]
           }],
           "/techNote/engineering/Redis/": [{
             title: 'Redis 学习笔记',
