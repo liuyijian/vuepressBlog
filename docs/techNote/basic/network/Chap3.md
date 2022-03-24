@@ -201,7 +201,7 @@
   * 32比特长的序号字段和32比特长的确认号字段：用于实现可靠数据传输服务
   * 16比特的接收窗口字段：用于流量控制，表示接收方愿意接受的字节数量
   * 4比特的首部长度字段：指示了以32比特的字为单位的TCP首部长度（通常TCP选项字段为空，典型长度是20字节）
-  * 6比特的标记字段：ACK（确认），RST，SYN，FIN（用于连接建立和拆除），PSH（若被设置，则接收方应立即将数据交付上层），URG（指示报文段存在被发送端上层实体置为紧急的数据）
+  * 8比特的标记字段：CWR（用于表示拥塞窗口已减半），ECE（用于表示网络传输过程中遇到拥塞），ACK（确认），RST，SYN，FIN（用于连接建立和拆除），PSH（若被设置，则接收方应立即将数据交付上层），URG（指示报文段存在被发送端上层实体置为紧急的数据）
   * 可选与变长的选项字段：用于发送方与接收方协商最大报文段长度（MSS），或在高速网络环境下作哦窗口调节因子时使用
 
   ![image-20210505162823240](https://tva1.sinaimg.cn/large/008i3skNly1gq7ms4w33gj30z00s6tbm.jpg)
@@ -277,3 +277,103 @@
 
 ### 3.6.1 拥塞原因与代价
 
+#### 场景一：两个发送方，一个有无限缓存的路由器
+
+![image-20220226161350542](https://tva1.sinaimg.cn/large/e6c9d24ely1gzqzei2zjbj20m608ugm7.jpg)
+
+* 场景：主机A和主机B各自以 $\lambda_{in}$ 的速率向路由器发送流量，路由器输出容量为R，缓存无限
+* 结果：主机发送流量的最大速率会被限制在 $\frac{R}{2}$，且随发送速率增长，平均时延非线性增长，趋于无穷
+
+#### 场景二：两个发送方，一个有有限缓存的路由器
+
+![image-20220227010204307](https://tva1.sinaimg.cn/large/e6c9d24ely1gzreo49iwhj20iv08uq3f.jpg)
+
+* 结果：主机A发送的流量中，一部分是初传数据，一部分是重传数据；重传的原因有二，一是路由器缓冲区溢出自动丢包，另一是路由器的传输时延过大被误以为丢包
+
+#### 场景三：四个发送方，有限缓存的路由器们，多跳路径
+
+![image-20220227011223024](https://tva1.sinaimg.cn/large/e6c9d24ely1gzreyszmjuj20hs0e5753.jpg)
+
+![image-20220227011510745](https://tva1.sinaimg.cn/large/e6c9d24ely1gzrf1pylmqj209g06oglh.jpg)
+
+* 场景：考虑A-C的传输路径，与D-B传输路径共享R1路由器，与B-D传输路径共享R2路由器
+* 结果：超过阈值后，当输入速率继续上升，R2的buffer一有空余就会被B发的包填满，导致AC速率骤降逼近0；R1的资源因此被浪费
+
+### 3.6.2 拥塞控制的方法
+
+* 端到端拥塞控制：网络层不会为传输层提供显式的拥塞控制支持，网络拥塞的事实是终端系统基于观察到的网络行为推断出来的
+* 网络辅助拥塞控制：路由器为收发双方提供显式的网络拥塞状态反馈
+
+## 3.7 TCP拥塞控制
+
+### 3.7.1 经典TCP拥塞控制
+
+* RFC2581中的TCP，我们称为经典TCP，使用端到端拥塞控制方式，发送方根据观测到的网络拥塞情况限制自身发送速率
+
+* 方法：发送方记录一个拥塞窗口的变量$cwnd$，对发送速率进行限制，且发送方未被ACK的数据应满足 $LastByteSent - LastByteAcked \le \min \{cwnd, rwnd\}$
+* 原理：丢包则表示有拥塞，TCP发送方应该调小拥塞窗口来实现降速；收到数据包的首次ACK响应表示网络情况良好，TCP发送方应该调大拥塞窗口来实现提速；带宽探索，TCP发送方根据丢包信号和ACK信号调节发送速率，直到探索出合适的速率
+
+* 算法：1988年提出，在RFC5681中标准化，包括慢启动、拥塞避免、快速恢复三部分，如图
+
+  * ![image-20220228181231037](https://tva1.sinaimg.cn/large/e6c9d24ely1gzte2jwkacj20n90i2tak.jpg)
+
+  * 1、慢启动：当新建一个TCP连接时，$cwnd$ 初始为一个较小的值，1MSS，故初始发送速率约为$\frac{MSS}{RTT}$，当一个传输segment被首次ack，则$cwnd$大小提高1MSS，这使得发送速率指数上涨，当检测到拥塞时，设置慢开始阈值变量 $ssthresh= \frac{cwnd}{2}$，当 $cwnd \ge ssthresh$时，进入拥塞避免模式
+
+    <img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gztdxsda3yj20ay0eqmxs.jpg" alt="image-20220228180753809" style="zoom:77%;" />
+
+  * 2、拥塞避免：获得新ACK时，$cwnd$ 从指数增长退化为线性增长，获得三次旧ACK时，进入快速恢复状态（更多细节看图）
+
+  * 3、快速恢复：获得新ACK，切换至拥塞避免状态；超时，切换至慢启动状态（更多细节看图）
+
+* 版本差异
+
+  * 旧版的TCP Tahoe 遇到congestion后，将cwmd设为从1开始增长，新版的Reno是从 $\frac{x}{2}+3$开始增长
+
+    <img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gztqt9msgxj20dc08o3yu.jpg" alt="image-20220301013320623" style="zoom:100%;" />
+
+  * TCP CUBIC [2008年，RFC 8312]，出发点是使减半后的cwnd尽快恢复到原有水平，修改了Reno中的拥塞避免状态的状态机，是Linux操作系统的默认TCP版本
+
+    ![image-20220301013816260](https://tva1.sinaimg.cn/large/e6c9d24ely1gztqycqxw2j20dk0970sw.jpg)
+
+### 3.7.2 网络辅助的显式拥塞控制和基于延迟的拥塞控制
+
+* 显式拥塞提醒（Explicit Congestion Notification，ECN）【RFC 3168】是一种网络拥塞控制的形式，在网络层的IP数据包包头，有两比特的表示位用于ECN
+
+  * 用法一：当路由器处于拥塞状态时，会置位为1，接收方在回复ACK时，会将ECN Echo标志位置为1，发送方收到这种ACK后，会对拥塞窗口进行调整，并在下一个发出的包里面将拥塞窗口已减少的标志位（CWR）置为1
+  * 用法二：发送方可以通过设置ECN标志位去告知路由器，收发双方支持ECN，故可以执行ECN的相关行为
+
+  ![image-20220301015917432](https://tva1.sinaimg.cn/large/e6c9d24ely1gztrk8f26xj20ji0aojrx.jpg)
+
+  * 评价：除TCP协议外，RFC4340中定义的DCCP，RFC8257中定义的DCTCP，2015年提出的DCQCN，均使用到了ECN技术，支持ECN的终端和路由器正在扩大部署
+
+* 基于延迟的拥塞控制（Delay-based Congestion Control）
+  * TCP Vegas（1995）：发送方会顾及一个无阻塞吞吐速率，约为$\frac{cwnd}{RTT_{\min}}$，若监测到实际吞吐速率显著降低，则认为是拥塞，降低发送速率
+  * BBR拥塞控制协议（2017）：部署在谷歌内部B4网络
+
+### 3.7.3 公平性
+
+* 公平性：
+
+  * 定义：当$K$条TCP连接共享一条传输速率为$R$ bps的瓶颈链路时，若每条TCP连接的平均速率接近 $\frac{R}{K}$ 时，称为公平的
+
+* TCP的公平性
+
+  * 理想假设：仅TCP连接通过瓶颈链路传输，TCP连接具有相同的RTT，一对收发双方仅有一条TCP连接
+
+  * 理想情况：考虑拥塞避免模式下，连接1和连接2均以同等速率线性增长，故45度角朝右上，设起点为A，则走出AB路径，在B点，总吞吐量大于带宽，故连接1，2均会出现拥塞，直接砍半，到C，然后再45度朝右上，长此以往，连接1和连接2的吞吐量会收敛到相等
+
+    ![image-20220301115725105](https://tva1.sinaimg.cn/large/e6c9d24ely1gzu8uklebaj20c80c1mxi.jpg)
+
+* UDP的公平性
+  * UDP连接没有原生的拥塞控制机制，不具备公平性
+  * RFC4340中提出了一些拥塞控制机制来避免UDP大量占用带宽
+
+## 3.8 传输层功能发展
+
+QUIC（Quick UDP Internet Connetcions）是2020年提出的一个全新的应用层协议，用于提高加密应用报文在传输层的性能表现
+
+![image-20220301141628807](https://tva1.sinaimg.cn/large/e6c9d24ely1gzucv9oo69j20d404d3yk.jpg)![image-20220301141927717](https://tva1.sinaimg.cn/large/e6c9d24ely1gzucydm4iyj20mg088jsf.jpg)
+
+* 面向安全连接：QUIC是端到端的面向连接的协议，所有QUIC包是加密的
+* 面向流：QUIC允许多个不同应用层级的流复用单个QUIC连接
+* 可靠的、TCP友好的拥塞控制：HTTP/1.1 中，多个HTTP请求在单条TCP连接上执行，需要按顺序执行，即等待前一个HTTP请求收到完整确认才可以开启下一个HTTP请求；QUIC提供per stream的可靠数据传输，详见RFC5681；

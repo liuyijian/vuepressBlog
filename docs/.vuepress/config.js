@@ -100,6 +100,11 @@ module.exports = {
             ]
           },
           {
+            text: '项目经历',
+            ariaLabel: 'Experience',
+            link: '/experience/'
+          },
+          {
             text: '资源聚合',
             ariaLabel: 'Resource',
             link: '/resource/'
@@ -128,7 +133,7 @@ module.exports = {
             title: '操作系统',
             collapsable: false,
             children: [
-                {title: 'Chap1', path:'Chap1'},
+                {title: '《现代操作系统》读书笔记', path:'Chap1'},
               ]
           }],
           "/techNote/algorithms/recommendation_system/": [{
@@ -163,7 +168,7 @@ module.exports = {
             title: '自然语言处理',
             collapsable: false,
             children:[
-              {title: 'Chap1', path: 'Chap1'},
+              {title: '《Speech and Language Processing 2020.12》读书笔记', path: 'Chap1'},
             ]
           }],
           "/techNote/engineering/Redis/": [{
@@ -283,6 +288,13 @@ module.exports = {
               {title: '官方文档', path:'officialdoc'},
               {title: '开源项目', path:'openproject'},
               {title: '技术文章', path:'article'},
+            ]
+          }],
+          "/experience/": [{
+            title: '项目经历',
+            collapsable: false,
+            children: [
+              {title: '安全生产智能监控平台', path: 'industryAI'},
             ]
           }],
         },
