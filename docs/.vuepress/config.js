@@ -288,6 +288,7 @@ module.exports = {
               {title: '官方文档', path:'officialdoc'},
               {title: '开源项目', path:'openproject'},
               {title: '技术文章', path:'article'},
+              {title: '工具链', path:'chain'},
             ]
           }],
           "/experience/": [{
