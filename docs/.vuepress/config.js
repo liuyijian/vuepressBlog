@@ -50,7 +50,11 @@ module.exports = {
                   {
                     text: '自然语言处理',
                     link: '/techNote/algorithms/nlp/'
-                  }
+                  },
+                  {
+                    text: '数据挖掘',
+                    link: '/techNote/algorithms/data_mining/'
+                  },
                 ]
               },
               {
@@ -127,6 +131,8 @@ module.exports = {
                 {title: 'Chap1 计算机网络和因特网', path:'Chap1'},
                 {title: 'Chap2 应用层', path:'Chap2'},
                 {title: 'Chap3 传输层', path:'Chap3'},
+                {title: 'Chap4 网络层——数据平面', path:'Chap4'},
+                {title: 'Chap5 网络层——控制平面', path:'Chap5'},
               ]
           }],
           "/techNote/basic/os/": [{
@@ -169,6 +175,13 @@ module.exports = {
             collapsable: false,
             children:[
               {title: '《Speech and Language Processing 2020.12》读书笔记', path: 'Chap1'},
+            ]
+          }],
+          "/techNote/algorithms/data_mining/": [{
+            title: '数据挖掘',
+            collapsable: false,
+            children:[
+              {title: '《低维模型分析高维数据：理论、计算与应用》读书笔记', path: 'Chap1'},
             ]
           }],
           "/techNote/engineering/Redis/": [{

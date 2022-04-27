@@ -135,3 +135,12 @@
 
 ## 4.4 广义的转发
 
+![image-20220427132236711](https://tva1.sinaimg.cn/large/e6c9d24ely1h1o7mth9lhj20nw0ib40a.jpg)
+
+* 每个路由器都维护一个Match-Plus-Action表，这个表通过远程控制器维护和分发，参考OpenFlow标准，ONF2020，下面以此为例子
+* Match：![image-20220427133439503](https://tva1.sinaimg.cn/large/e6c9d24ely1h1o7zbldtcj20qb04cq3c.jpg)
+* Action：转发、丢弃、修改字段
+* 在一个网络体系中，该分布式表的不同组合，能实现负载均衡，防火墙等功能
+
+
+
