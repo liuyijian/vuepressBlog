@@ -55,6 +55,10 @@ module.exports = {
                     text: '数据挖掘',
                     link: '/techNote/algorithms/data_mining/'
                   },
+                  {
+                    text: '机器视觉',
+                    link: '/techNote/algorithms/cv/'
+                  }
                 ]
               },
               {
@@ -182,6 +186,13 @@ module.exports = {
             collapsable: false,
             children:[
               {title: '《低维模型分析高维数据：理论、计算与应用》读书笔记', path: 'Chap1'},
+            ]
+          }],
+          "/techNote/algorithms/cv/": [{
+            title: '机器视觉',
+            collapsable: false,
+            children:[
+              {title: 'ocr学习笔记', path: 'ocr'},
             ]
           }],
           "/techNote/engineering/Redis/": [{
